@@ -172,7 +172,7 @@ export const FORMS = {
       { label: "Email or phone", kind: "text", required: true, maxLength: 200 },
       { label: "City and country", kind: "text", maxLength: 120 },
       { label: "About how many people?", kind: "select", choices: ["Under 15", "15 to 50", "50 to 150", "More than 150"] },
-      { label: "Topics of interest", kind: "multi", choices: ["Recognizing human trafficking", "Scams and older adults", "Keeping children safe online", "How to respond and where to report"] },
+      { label: "Topics of interest", kind: "multi", choices: ["Human trafficking", "Child sexual exploitation", "Elder financial exploitation", "Predatory scams", "How to respond and where to report"] },
       { label: "Preferred format", kind: "radio", choices: ["In person", "Online", "Either"] },
       { label: "Anything else we should know?", kind: "textarea", maxLength: 2000 }
     ]
