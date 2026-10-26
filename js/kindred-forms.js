@@ -88,7 +88,7 @@ export function mountForm(container, spec) {
     const formErr = form.querySelector(".f-formerr");
     formErr.textContent = "";
     let first = null;
-    const data = {};
+    const data = { ...(spec.extra || {}) };
     spec.fields.forEach((f, i) => {
       const el = fieldEl(i), err = el.querySelector(".f-err"), v = value(i);
       const empty = Array.isArray(v) ? v.length === 0 : !v;
@@ -148,6 +148,33 @@ export const FORMS = {
       { label: "Organization", kind: "text", maxLength: 160 },
       { label: "How to reach you", kind: "text", required: true, maxLength: 200, placeholder: "Email or phone, and whether it is safe to leave a message" },
       { label: "Message", kind: "textarea", maxLength: 5000 }
+    ]
+  },
+  network: {
+    sheet: "Get involved", extra: { "Type": "Join the network" }, submitText: "Join the network", thanksTitle: "Welcome to the Kindred network.",
+    thanks: "Thank you. We\u2019ll be in touch with resources and news of trainings and events. You can ask to be removed at any time.",
+    fields: [
+      { label: "First name", kind: "text", maxLength: 80 },
+      { label: "Email", kind: "text", required: true, maxLength: 200, placeholder: "you@example.org" },
+      { label: "Country", kind: "text", maxLength: 80 },
+      { label: "Which best describes you?", kind: "select", choices: ["Member of the public", "Parent or caregiver", "Professional who may see these situations at work", "Student or researcher", "Survivor or survivor advocate", "Representing an organization"] },
+      { label: "What would you like to hear about?", kind: "multi", choices: ["Learning resources", "Trainings", "Events", "Volunteering", "Partnerships"] },
+      { label: "I agree that Kindred may email me. I can unsubscribe at any time.", kind: "checkbox", required: true }
+    ]
+  },
+  training: {
+    sheet: "Get involved", extra: { "Type": "Training request" }, submitText: "Send request", thanksTitle: "Thank you. Your request was sent.",
+    thanks: "We\u2019ll get back to you to talk about what your group needs.",
+    fields: [
+      { label: "Organization or group", kind: "text", required: true, maxLength: 160 },
+      { label: "Type of group", kind: "select", required: true, choices: ["Workplace", "School or college", "Faith community", "Community group", "Bank or financial services", "Healthcare", "Hotel, transport or hospitality", "Other"] },
+      { label: "Your name", kind: "text", required: true, maxLength: 120 },
+      { label: "Email or phone", kind: "text", required: true, maxLength: 200 },
+      { label: "City and country", kind: "text", maxLength: 120 },
+      { label: "About how many people?", kind: "select", choices: ["Under 15", "15 to 50", "50 to 150", "More than 150"] },
+      { label: "Topics of interest", kind: "multi", choices: ["Recognizing human trafficking", "Scams and older adults", "Keeping children safe online", "How to respond and where to report"] },
+      { label: "Preferred format", kind: "radio", choices: ["In person", "Online", "Either"] },
+      { label: "Anything else we should know?", kind: "textarea", maxLength: 2000 }
     ]
   },
   idea: {

@@ -1,14 +1,14 @@
 /**
  * Kindred forms: receives answers from the Kindred website and saves them in this Google Sheet.
- * One tab per form (Survey, Share your story, Contact, Ideas), one column per question.
+ * One tab per form (Survey, Survivor survey, Share your story, Contact, Ideas, Get involved), one column per question.
  * Answers are private to the owner of this spreadsheet.
  */
 
 // Tabs the website is allowed to write to. Anything else is ignored.
-const FORMS = ["Survey", "Share your story", "Contact", "Ideas"];
+const FORMS = ["Survey", "Survivor survey", "Share your story", "Contact", "Ideas", "Get involved"];
 
 // Get an email when someone sends one of these forms. The email never contains their answers.
-const NOTIFY_FOR = ["Share your story", "Contact"];
+const NOTIFY_FOR = ["Share your story", "Contact", "Get involved"];
 
 function doPost(e) {
   const lock = LockService.getScriptLock();

@@ -1,6 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
+<script>document.documentElement.className="js"</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Can you spot exploitation? A Kindred survey | Kindred</title>
@@ -78,16 +79,14 @@
 .sv-error{color:var(--red-dark);font-weight:600}
 @media (max-width:640px){
   .sv-cols{grid-template-columns:1fr}
-  .sv-grid thead{display:none}
-  .sv-grid,.sv-grid tbody,.sv-grid tr,.sv-grid td{display:block;width:100%}
-  .sv-grid tr{border-bottom:1px solid var(--line);padding:10px 0}
-  .sv-grid td{border:0;padding:4px 0;text-align:left}
-  .sv-grid td:not(:first-child){display:inline-block;width:auto;margin-right:6px}
-  .sv-grid td label{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:4px;padding:8px 10px;font-size:.92rem}
-  .sv-grid td label span{display:inline}
+  .sv-grid{font-size:.92rem}
+  .sv-grid th,.sv-grid td{padding:8px 3px}
+  .sv-grid thead th{font-size:.74rem;line-height:1.2;word-break:normal;hyphens:auto}
+  .sv-grid td:first-child{width:38%}
   .sv-nav .btn{flex:1}
 }
-@media (min-width:641px){.sv-grid td label span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+.sv-grid td label span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.sv-grid td label{display:flex;justify-content:center;align-items:center;min-height:40px;cursor:pointer}
 .sv-sub{font-family:var(--sans);font-size:1.05rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:26px 0 14px;padding-top:14px;border-top:3px solid var(--brand)}
 .sv textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid #8c939b;border-radius:4px;min-height:90px;resize:vertical}
 .sv-other[hidden]{display:none}.sv-other{margin-top:10px}
@@ -128,9 +127,9 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="learn.html">Learn the signs</a></li>
       <li><a href="survey.html">Take the survey</a></li>
+      <li><a href="get-involved.html">Get involved</a></li>
+      <li><a href="share.html">For survivors</a></li>
       <li><a href="why-i-started-kindred.html">Our story</a></li>
-      <li><a href="share.html">Share your story</a></li>
-      <li><a href="ideas.html">Share an idea</a></li>
       <li class="nav-help"><a href="connect.html">Get help</a></li>
     </ul>
   </div>
@@ -150,7 +149,7 @@
       <div class="footer-about"><p class="footer-logo">Kindred</p><p>Kindred is a community movement to awaken the humanity in us and help people recognize and stand against human trafficking, scams, elder financial exploitation and child sexual exploitation. It is not a crisis service, a law enforcement agency or a legal provider.</p></div>
       <div><h2>Learn</h2><ul><li><a href="learn.html#trafficking">Human trafficking</a></li><li><a href="learn.html#scams">Scams</a></li><li><a href="learn.html#elder">Older adults and money</a></li><li><a href="learn.html#children">Children online</a></li></ul></div>
       <div><h2>Get help</h2><ul><li><a href="connect.html#hotlines">Hotlines and resources</a></li><li><a href="connect.html#contact">Contact us</a></li></ul></div>
-      <div><h2>Get involved</h2><ul><li><a href="survey.html">Take the survey</a></li><li><a href="share.html">Share your story</a></li><li><a href="ideas.html">Share an idea</a></li><li><a href="why-i-started-kindred.html">Our story</a></li></ul></div>
+      <div><h2>Get involved</h2><ul><li><a href="survey.html">Take the survey</a></li><li><a href="get-involved.html#network">Join the network</a></li><li><a href="get-involved.html#training">Request a training</a></li><li><a href="get-involved.html#events">Events</a></li><li><a href="share.html">For survivors</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <p>Information on this site is general education, not legal advice. Legal references are to U.S. federal law unless stated otherwise.</p>
@@ -159,6 +158,7 @@
   </div>
 </footer>
 <script src="js/site.js" defer></script>
+<script src="js/enhance.js" defer></script>
 <script type="module">
 import { sendToSheet } from "./js/kindred-forms.js";
 const VERSION = "v2-2026-10";
@@ -167,48 +167,48 @@ const VERSION = "v2-2026-10";
 const AGES = ["18 to 24","25 to 34","35 to 44","45 to 54","55 to 64","65 to 74","75 or older","Prefer not to say"];
 const GENDERS = ["Woman","Man","Non-binary","Prefer to self-describe","Prefer not to say"];
 const SECTORS = ["Banking and financial services","Compliance, legal or risk","Insurance","Healthcare","Education","Childcare or youth work","Elder care or social care","Social services or nonprofit","Law enforcement or public safety","Government or public sector","Faith community","Hospitality, travel or transportation","Retail or customer service","Technology","Media, marketing or communications","Construction, manufacturing or agriculture","Domestic work or cleaning","Student","Retired","Not currently working","Prefer not to say","Other"];
-const ROLES = ["I am a parent or guardian of someone under 18","I help care for, or manage money for, an older adult","I work or volunteer with people who may be vulnerable","None of these"];
+const ROLES = ["I am a parent or guardian of someone under 18","I help care for, or manage money for, an older adult","None of these"];
 const TRAINING = ["Yes, through work","Yes, at school or college","Yes, through a faith or community group","Only through the news or social media","No, never"];
 const TOPICS = [["trafficking","Human trafficking"],["scams","Scams"],["elder","Financial exploitation of an older adult"],["child","Sexual exploitation of a child"]];
 const CONF_COLS = ["Not at all","A little","Fairly","Very"];
 const SCALE = (w) => ["Nothing unusual","A bit unusual, but probably fine",`Possibly ${w}`,`Very likely ${w}`,"Not sure"];
 
 const SCENARIOS = [
-  { id:"maria", title:"Maria", word:"exploitation", topic:"Labor trafficking",
+  { id:"maria", mode:"details", group:"trafficking",  title:"Maria", word:"exploitation", topic:"Labor trafficking",
     story:["Maria, 24, moved to another city for a job with a cleaning company that a family friend recommended. The company paid for her travel and found her a room in a shared house the manager owns.",
            "Rent and her travel costs come out of her pay, so most weeks she takes home very little. The manager keeps her ID “so it doesn’t get lost” and drives the team to each job. Maria says she’s grateful for the work and will stay until she has paid back what she owes."],
     correct:[2,3],
     flags:["The manager keeps her ID","Her boss is also her landlord and her driver","Rent and costs are taken from her pay","She owes money she must work off"],
     neutral:["The job came through a family friend","She lives in a shared house"],
     why:"Nobody is holding Maria by force, and she doesn’t see herself as a victim, which is common. But an employer who controls her ID, her housing, her transport and a debt she must work off shows recognized signs of forced labor and debt bondage. Gratitude doesn’t rule out exploitation." },
-  { id:"jordan", title:"Jordan", word:"exploitation", topic:"Sex trafficking through a relationship",
+  { id:"jordan", mode:"action", group:"trafficking", action:{ q:"Jordan’s sister is worried. What would be the best first step for her?", options:["Stay out of it. It’s Jordan’s choice","Tell Jordan she’s being naive","Stay close to Jordan without judging her, and call a hotline for advice","Confront Chris directly","Not sure"], good:2, why:"Staying close and non-judgmental keeps the door open, and hotlines give advice to worried family members, not only to victims. Confronting the person or criticizing Jordan can push her further away." },  title:"Jordan", word:"exploitation", topic:"Sex trafficking through a relationship",
     story:["Jordan, 19, has been dating Chris, 27, for four months. He’s generous, pays her phone bill and recently moved her into his apartment. He looks after “their” money, and says her old friends “don’t get them.”",
            "Last week he asked her to go to a few dinners with a business contact of his, saying it would really help them both out. Jordan tells her sister she’s never been happier."],
     correct:[2,3],
     flags:["He controls the money","He discourages her friendships","He asked her to spend time with his contact to “help them out”","He pays her phone bill"],
     neutral:["She moved in after four months","She says she’s happy"],
     why:"Many people trafficked by a partner believe at first that it’s love. Taking control of money and the phone, cutting off friends, then asking for a “favor” with other men is a well-known pattern, sometimes called the boyfriend method. Feeling happy now doesn’t mean she is safe." },
-  { id:"ana", title:"Ana", word:"exploitation", topic:"A normal situation (control)", control:true,
+  { id:"ana", mode:"judgment", group:"control",  title:"Ana", word:"exploitation", topic:"A normal situation (control)", control:true,
     story:["Ana, 22, went abroad for a year as an au pair through a registered agency. She signed a contract in her own language, keeps her own passport and is paid monthly into her own bank account.",
            "She has her own room in the family’s home and calls her parents every Sunday. The family sometimes asks her to babysit on Saturday nights for extra pay, and she can say no."],
     correct:[0,1], flags:[],
     neutral:["She works abroad","She lives with her employer","She found the job through an agency","She is asked to work extra hours"],
     why:"This one is a normal situation. Working abroad or living with an employer isn’t a warning sign by itself. Ana keeps her own documents and money, understands her contract, stays in touch with family and can refuse extra work. Knowing what normal looks like matters as much as spotting what isn’t." },
-  { id:"invest", title:"The investment friend", word:"a scam", topic:"Investment romance scam",
+  { id:"invest", mode:"action", group:"scams", action:{ q:"What would you do next?", options:["Deposit more while the returns are good","Ask them for a proper video call first, then decide","Stop, and check the platform with my bank or financial regulator before sending anything else","Not sure"], good:2, why:"A video call can be faked or avoided, and the early profits are part of the trap. Stop sending money and check the platform independently." },  title:"The investment friend", word:"a scam", topic:"Investment romance scam",
     story:["You met someone on a language-exchange app. After weeks of friendly daily chats, you’ve video called once, briefly, on a bad connection.",
            "They have never asked you for money. Instead, they showed you how they make steady profits on a cryptocurrency trading platform and helped you open your own account. Your first small deposit has grown 30%, and you withdrew $50 with no problem."],
     correct:[2,3],
     flags:["They recommended a specific trading platform","The returns are high and steady","Only one short video call","I was allowed to withdraw a little money"],
     neutral:["We met online","They never asked me for money"],
     why:"This is a common investment romance scam, sometimes called “pig butchering.” The scammer never asks for money directly. They steer you to a fake platform and let you withdraw a small amount to build trust, then encourage much larger deposits that can never be withdrawn." },
-  { id:"rose", title:"Rose", word:"exploitation", topic:"Elder financial exploitation",
+  { id:"rose", mode:"details", group:"elder",  title:"Rose", word:"exploitation", topic:"Elder financial exploitation",
     story:["Since her husband died, Rose, 81, relies on her grandson Daniel, who moved in to help. He now does her banking online “to make things easier” and recently became her power of attorney.",
            "Rose’s bills are all paid, but her savings have dropped faster than the family expected, and Daniel has bought a new car. When her daughter asks, Rose says Daniel deserves something for everything he does."],
     correct:[2,3],
     flags:["Her savings are falling faster than expected","He bought a new car","He recently took over her banking and power of attorney","Rose defends him"],
     neutral:["Her grandson moved in to help","Her bills are paid"],
     why:"Family members are the most commonly reported perpetrators of elder financial exploitation. Paid bills and Rose’s loyalty don’t rule it out; older adults often protect the person they depend on. Falling savings, new control over accounts and unexplained spending are worth a gentle conversation and, if concerns remain, a report." },
-  { id:"sam", title:"Sam", word:"exploitation", topic:"Online grooming of a child",
+  { id:"sam", mode:"action", group:"child", action:{ q:"If you were Sam’s parent, what would you do first?", options:["Take away his phone and ban gaming","Talk calmly with Sam and ask about this friend, without blaming him","Message the friend and confront them","Wait and see if it continues","Not sure"], good:1, why:"A calm, blame-free conversation makes it more likely Sam will tell you what is really happening. Taking his phone away can make children hide things, and confronting the person can lead to evidence being deleted." },  title:"Sam", word:"exploitation", topic:"Online grooming of a child",
     story:["Sam, 13, has become close to an older teen he met in an online game, who coaches him to play better and often gifts him in-game currency.",
            "They’ve started chatting on a different app where messages disappear. Sam has become more private about his phone, and recently asked his parents for his own bank card “for gaming.”"],
     correct:[2,3],
@@ -217,48 +217,46 @@ const SCENARIOS = [
     why:"People who exploit children online often pose as a slightly older peer, build trust with gifts such as game currency, and move chats to private or disappearing-message apps. Any one of these can be normal for a teenager; together they call for a calm, non-judgmental conversation with Sam." }
 ];
 
-const MYTHS = [
-  { id:"t_border", topic:"trafficking", text:"Human trafficking always involves moving someone across a border.", answer:"False",
-    why:"No travel is needed. People can be trafficked in their own town, even their own home." },
-  { id:"t_smuggling", topic:"trafficking", text:"Human trafficking and human smuggling are the same crime.", answer:"False",
-    why:"Smuggling is about crossing a border without authorization. Trafficking is about exploitation. They can overlap, but they are different crimes." },
-  { id:"t_kidnap", topic:"trafficking", text:"Most people who are trafficked are kidnapped by strangers.", answer:"False",
-    why:"Most are recruited through deception, often by someone they know, such as a partner, relative, friend or employer." },
-  { id:"t_agreed", topic:"trafficking", text:"A person who agreed to a job at first can still become a victim of trafficking.", answer:"True",
-    why:"Agreeing to a job, a trip or a relationship is not agreeing to be forced, deceived or pressured into exploitation later." },
-  { id:"t_force", topic:"trafficking", text:"Trafficking can happen without any physical force, through lies, threats or debt.", answer:"True",
-    why:"Fraud and coercion, such as a debt that never shrinks or threats to someone’s family, can be enough on their own." },
-  { id:"t_men", topic:"trafficking", text:"Men and boys can be victims of sex trafficking.", answer:"True",
-    why:"Anyone can be trafficked. Men and boys are often overlooked, which makes it harder for them to get help." },
-  { id:"s_giftcard", topic:"scams", text:"A government agency may call and demand immediate payment by gift card.", answer:"False",
-    why:"Government agencies don’t demand payment by gift card. It is one of the clearest signs of a scam." },
-  { id:"s_older", topic:"scams", text:"Mostly older people fall for scams.", answer:"False",
-    why:"In U.S. Federal Trade Commission data, younger adults report losing money to fraud more often than older adults. Older adults tend to lose larger amounts each time." },
-  { id:"s_callerid", topic:"scams", text:"If a call or text shows your bank’s real name or number, it must be genuine.", answer:"False",
-    why:"Caller ID and sender names can be faked. If in doubt, hang up and call the number on your card." },
-  { id:"s_withdraw", topic:"scams", text:"A scammer may let you withdraw some money at first, to gain your trust.", answer:"True",
-    why:"Fake investment platforms often allow a small early withdrawal, so victims feel safe putting in much more." },
-  { id:"s_report", topic:"scams", text:"Most people who are scammed report it to the authorities.", answer:"False",
-    why:"Most fraud is never reported, often because of shame or not knowing where to report. That is why official numbers are only part of the picture." },
-  { id:"e_strangers", topic:"elder", text:"Financial exploitation of older adults is most often committed by strangers.", answer:"False",
-    why:"Family members are the most commonly reported perpetrators, followed by others the person knows and trusts." },
-  { id:"e_willing", topic:"elder", text:"If an older adult hands over money willingly, it can’t be exploitation.", answer:"False",
-    why:"Pressure, deception, isolation or memory problems can mean agreement isn’t freely given." },
-  { id:"e_poa", topic:"elder", text:"A power of attorney can be misused to exploit an older person.", answer:"True",
-    why:"A power of attorney gives someone legal control over another person’s money, which can be abused. Sudden new powers of attorney are a known warning sign." },
-  { id:"e_tell", topic:"elder", text:"Older adults who are being financially exploited usually tell someone.", answer:"False",
-    why:"Most cases are never reported. One New York study estimated that only 1 in 44 cases reached Adult Protective Services." },
-  { id:"c_strangers", topic:"child", text:"Most children who are sexually abused are harmed by strangers.", answer:"False",
-    why:"Most are harmed by someone they or their family know and trust." },
-  { id:"c_grooming", topic:"child", text:"People who exploit children often build trust first, through attention, gifts or secrecy.", answer:"True",
-    why:"This gradual trust-building is called grooming, and it often targets the family as well as the child." },
-  { id:"c_online", topic:"child", text:"A child can be sexually exploited online without ever meeting the person.", answer:"True",
-    why:"Online exploitation, including sextortion, can happen entirely through messages, images and video." },
-  { id:"c_girls", topic:"child", text:"Sextortion mainly targets girls.", answer:"False",
-    why:"Teenage boys are now frequently targeted, especially in financial sextortion, where criminals demand money." },
-  { id:"c_minor", topic:"child", text:"If a 16-year-old seems to agree to sex in exchange for money or gifts, it isn’t trafficking.", answer:"False",
+const KNOW = [
+  { id:"t_even", topic:"trafficking", type:"multi", q:"Someone can still be a victim of human trafficking even if they…", hint:"Choose all that apply.",
+    options:["are paid for their work","can leave the house on their own","agreed to the job at first","were never moved to another city or country","are a citizen of the country where it happens","are a man","can quit at any time, with no threats, debts or penalties"],
+    correct:[0,1,2,3,4,5],
+    why:"All of these except the last can still be trafficking. Pay, freedom of movement, consent at the start, citizenship and gender don\u2019t rule it out. What matters is whether the person is controlled through force, fraud or coercion. Someone who can truly quit without threats, debts or penalties is not being trafficked." },
+  { id:"t_sex", topic:"trafficking", type:"mc", q:"Out of every 10 people in forced labor worldwide, about how many do you think are being sexually exploited?",
+    options:["About 1 to 2","About 3 to 5","About 6 to 8","Nearly all","Not sure"], answer:0,
+    why:"About 2 in 10. Of 27.6 million people in forced labor, 6.3 million are in forced commercial sexual exploitation. Most are exploited in work like domestic service, construction, farming, factories and services (ILO, Walk Free and IOM, 2022)." },
+  { id:"t_help", topic:"trafficking", type:"tf", q:"People who are being trafficked will usually ask for help when they get the chance.", answer:"False",
+    why:"Many don\u2019t, often because of fear, debt, shame, threats to family, distrust of authorities, or because they don\u2019t see themselves as victims." },
+  { id:"s_spoof", topic:"scams", type:"tf", q:"Scammers can make a call or text appear to come from your bank\u2019s real phone number.", answer:"True",
+    why:"Caller ID and sender names can be faked. If in doubt, hang up and call the number on the back of your card." },
+  { id:"s_voice", topic:"scams", type:"tf", q:"Scammers can use AI to copy a family member\u2019s voice from a short recording, then call you pretending they\u2019re in trouble.", answer:"True",
+    why:"The U.S. Federal Trade Commission warns that voice cloning is being used in family-emergency scams. Agree on a family code word, and call your relative back on a number you know." },
+  { id:"s_age", topic:"scams", type:"mc", q:"In U.S. fraud reports, which group reports losing money to scams more often?",
+    options:["Adults in their 20s and 30s","Adults aged 70 and over","About the same","Not sure"], answer:0,
+    why:"In Federal Trade Commission data, younger adults report losing money more often. Older adults tend to lose larger amounts each time." },
+  { id:"s_recovery", topic:"scams", type:"tf", q:"Someone who has already lost money to a scam is less likely to be targeted again.", answer:"False",
+    why:"Past victims are often targeted again, including by \u201crecovery\u201d scammers who promise to get the money back for a fee." },
+  { id:"e_who", topic:"elder", type:"mc", q:"In cases investigated by Adult Protective Services, who is most often responsible for the financial exploitation of an older adult?",
+    options:["Strangers who contact them by phone or online","Family members","Paid caregivers","Financial advisors","Not sure"], answer:1,
+    why:"Family members are the most commonly reported perpetrators, followed by others the older person knows and trusts. Scams by strangers are also a major risk, which is why both matter." },
+  { id:"e_reported", topic:"elder", type:"mc", q:"In a large New York study, out of every 44 cases of elder financial exploitation, about how many were reported to the authorities?",
+    options:["About 1","About 10","About 20","More than 30","Not sure"], answer:0,
+    why:"Only about 1 in 44. Most cases stay hidden, often because the older person depends on, loves or fears the person involved." },
+  { id:"e_willing", topic:"elder", type:"tf", q:"If an older adult hands over money willingly, it can\u2019t be exploitation.", answer:"False",
+    why:"Pressure, deception, isolation or memory problems can mean agreement isn\u2019t freely given." },
+  { id:"c_who", topic:"child", type:"mc", q:"Who most often sexually abuses children?",
+    options:["Strangers","Someone the child or their family knows and trusts","Mostly other children","Not sure"], answer:1,
+    why:"Most children are harmed by someone they or their family know and trust. Teaching only \u201cstranger danger\u201d misses most of the risk." },
+  { id:"c_tell", topic:"child", type:"tf", q:"Children who are being sexually abused usually tell a parent or trusted adult soon after it starts.", answer:"False",
+    why:"Many children wait years, or never tell, because of fear, shame, confusion, or loyalty to the person harming them. Adults need to notice the signs and make telling feel safe." },
+  { id:"c_sextortion", topic:"child", type:"mc", q:"Who are the most frequent targets of financial sextortion, where criminals threaten to share a young person\u2019s images unless they pay?",
+    options:["Teenage girls","Teenage boys","Children under 10","Not sure"], answer:1,
+    why:"The FBI warns that teenage boys, mostly aged 14 to 17, are the main targets of financial sextortion." },
+  { id:"c_minor", topic:"child", type:"tf", q:"If a 16-year-old seems to agree to sex in exchange for money or gifts, it isn\u2019t trafficking.", answer:"False",
     why:"Under international and U.S. law, any child involved in commercial sex is a victim. No force or deception has to be shown." }
 ];
+const isRight = (k, v) => k.type === "multi" ? (Array.isArray(v) && k.options.every((o, i) => k.correct.includes(i) === v.includes(o))) : k.type === "mc" ? v === k.options[k.answer] : v === k.answer;
+const rightText = (k) => k.type === "multi" ? "All except the last" : k.type === "mc" ? k.options[k.answer] : k.answer;
 const TF = ["True","False","Not sure"];
 
 const AGREE_COLS = ["Strongly disagree","Disagree","Neutral","Agree","Strongly agree"];
@@ -268,11 +266,9 @@ const ATTITUDES = [
   ["blame","People who fall for scams are partly to blame."],
   ["choice","People involved in commercial sex are usually there by choice."],
   ["here","Human trafficking happens in my own community."],
-  ["family","Someone in my own family could be targeted by one of these crimes."],
   ["comfort","I feel comfortable talking about these topics with family or friends."],
   ["wouldreport","If I suspected one of these crimes, I would report it."],
-  ["teach","Schools and workplaces should teach people about these crimes."],
-  ["kids","Children should be taught about online grooming from a young age."]
+  ["teach","Schools and workplaces should teach people about these crimes."]
 ];
 const KNOW_COLS = ["Yes, I know exactly","I’d have to look it up","No idea"];
 const BARRIERS = ["I’m not sure it’s really a crime","I don’t know who to contact","Fear of being wrong or overreacting","Fear for my safety, or the person’s","Not wanting to get involved","Distrust of police or authorities","Worry about the person’s immigration status","Language barriers","Nothing would stop me","Other"];
@@ -294,7 +290,12 @@ const checks = (name, opts, max, none) => `<div class="sv-opts" ${max ? `data-ma
 const grid = (prefix, rows, cols) => `<table class="sv-grid"><thead><tr><th scope="col"></th>${cols.map(c => `<th scope="col">${c}</th>`).join("")}</tr></thead><tbody>
   ${rows.map(([k, l]) => `<tr><td>${esc(l)}</td>${cols.map(c => `<td><label><input type="radio" name="${prefix}_${k}" value="${esc(c)}" aria-label="${esc(l)}: ${esc(c)}"><span>${esc(c)}</span></label></td>`).join("")}</tr>`).join("")}</tbody></table>`;
 function shuffle(a) { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; }
-const mythBlock = (list) => shuffle(list).map(m => `<fieldset class="sv-q sv-myth"><legend>${esc(m.text)}</legend><div class="sv-row">${TF.map(o => `<label class="sv-opt"><input type="radio" name="m_${m.id}" value="${o}"><span>${o}</span></label>`).join("")}</div></fieldset>`).join("");
+const knowBlock = (list) => list.map(k => {
+  const n = "k_" + k.id;
+  if (k.type === "tf") return `<fieldset class="sv-q sv-myth"><legend>${esc(k.q)}</legend><div class="sv-row">${TF.map(o => `<label class="sv-opt"><input type="radio" name="${n}" value="${o}"><span>${o}</span></label>`).join("")}</div></fieldset>`;
+  if (k.type === "mc") return `<fieldset class="sv-q sv-myth"><legend>${esc(k.q)}</legend>${radios(n, k.options)}</fieldset>`;
+  return `<fieldset class="sv-q sv-myth"><legend>${esc(k.q)} <span class="sv-hint">${esc(k.hint)}</span></legend>${checks(n, k.options)}</fieldset>`;
+}).join("");
 
 /* ======================= Screens ======================= */
 const screens = [];
@@ -303,7 +304,7 @@ screens.push({ id:"intro", intro:true, html:`
   <h1>Can you spot exploitation?</h1>
   <p class="lead">Human trafficking, scams and exploitation rarely look the way we expect, and people living through them often don’t see it themselves. This survey helps Kindred understand what people know, what they believe and what they miss, so we can teach what matters most.</p>
   <ul class="sv-facts">
-    <li>About 15 minutes: real-life situations, true-or-false statements and a few questions about you.</li>
+    <li>About 15 minutes, in 9 short parts: topic by topic, real-life situations and a few quick questions, then your views.</li>
     <li>Anonymous. We don’t ask for your name, email or contact details, and answers are never shared or sold.</li>
     <li>You’ll see your results and the correct answers at the end.</li>
     <li>Every question is optional. You can stop at any time.</li>
@@ -313,7 +314,7 @@ screens.push({ id:"intro", intro:true, html:`
   ${radios("consent", ["I am 18 or older and agree to take part","I am under 18"])}</fieldset>` });
 
 screens.push({ id:"about", html:`
-  <p class="sv-kicker">Part 1 of 7 · About you</p>
+  <p class="sv-kicker">Part 1 of 9 · About you</p>
   <h2>A little about you</h2>
   <p class="sv-hint">This helps us see how understanding differs across places, ages and professions.</p>
   <div class="sv-q"><label class="sv-label" for="country">Which country do you live in?</label>
@@ -328,43 +329,42 @@ screens.push({ id:"about", html:`
   <fieldset class="sv-q"><legend>Have you ever received training or information about human trafficking, scams or exploitation? <span class="sv-hint">Choose all that apply.</span></legend>${checks("training", TRAINING, 0, "No, never")}</fieldset>` });
 
 screens.push({ id:"confidence", html:`
-  <p class="sv-kicker">Part 2 of 7 · Before we begin</p>
+  <p class="sv-kicker">Part 2 of 9 · Before we begin</p>
   <h2>How confident are you?</h2>
-  <p>How confident are you that you would recognize each of these if it were happening to someone you know?</p>
+  <p>How confident are you that you could recognize each of these if it were happening around you?</p>
   ${grid("conf", TOPICS, CONF_COLS)}
-  <p style="margin-top:22px">And if it were happening <strong>to you</strong>?</p>
-  ${grid("confself", TOPICS.slice(0, 3), CONF_COLS)}` });
+` });
 
-SCENARIOS.forEach((s, i) => {
-  const details = shuffle([...s.flags, ...s.neutral]);
-  screens.push({ id:"s_" + s.id, html:`
-    <p class="sv-kicker">Part 3 of 7 · Situation ${i + 1} of ${SCENARIOS.length}</p>
-    <h2>${esc(s.title)}</h2>
-    <div class="sv-story">${s.story.map(p => `<p>${esc(p)}</p>`).join("")}</div>
-    <fieldset class="sv-q"><legend>Based only on what you’ve read, how would you describe this situation?</legend>${radios("j_" + s.id, SCALE(s.word))}</fieldset>
-    <fieldset class="sv-q"><legend>Which details, if any, concern you? <span class="sv-hint">Choose all that apply.</span></legend>${checks("d_" + s.id, [...details, "None of these concern me"], 0, "None of these concern me")}</fieldset>` });
+const GROUPS = [["trafficking","Human trafficking"],["scams","Scams"],["control","A quick one"],["elder","Older adults and money"],["child","Children"]];
+let partNo = 2;
+GROUPS.forEach(([g, gl]) => {
+  const part = g === "control" ? `Part ${partNo} of 9 · ${gl}` : `Part ${++partNo} of 9 · ${gl}`;
+  SCENARIOS.filter(s => s.group === g).forEach(s => {
+    const details = shuffle([...s.flags, ...s.neutral]);
+    const judge = `<fieldset class="sv-q"><legend>Based only on what you’ve read, how would you describe this situation?</legend>${radios("j_" + s.id, SCALE(s.word))}</fieldset>`;
+    const det = s.mode === "details" ? `<fieldset class="sv-q"><legend>Which details, if any, concern you? <span class="sv-hint">Choose all that apply.</span></legend>${checks("d_" + s.id, [...details, "None of these concern me"], 0, "None of these concern me")}</fieldset>` : "";
+    const act = s.mode === "action" ? `<fieldset class="sv-q"><legend>${esc(s.action.q)}</legend>${radios("x_" + s.id, s.action.options)}</fieldset>` : "";
+    screens.push({ id:"s_" + s.id, html:`
+      <p class="sv-kicker">${part}</p>
+      <h2>Situation: ${esc(s.title)}</h2>
+      <div class="sv-story">${s.story.map(p => `<p>${esc(p)}</p>`).join("")}</div>
+      ${judge}${det}${act}` });
+  });
+  if (g !== "control") screens.push({ id:"m_" + g, html:`
+    <p class="sv-kicker">${part}</p>
+    <h2>What do you think?</h2>
+    <p class="sv-hint">Go with your first instinct. \u201cNot sure\u201d is a useful answer too.</p>
+    ${knowBlock(KNOW.filter(k => k.topic === g))}` });
 });
 
-screens.push({ id:"myths1", html:`
-  <p class="sv-kicker">Part 4 of 7 · True or false</p>
-  <h2>True or false? (1 of 2)</h2>
-  <p class="sv-hint">Answer what you honestly believe. Choose “Not sure” whenever you are. That answer is useful to us too.</p>
-  <h3 class="sv-sub">Human trafficking</h3>${mythBlock(MYTHS.filter(m => m.topic === "trafficking"))}
-  <h3 class="sv-sub">Scams</h3>${mythBlock(MYTHS.filter(m => m.topic === "scams"))}` });
-screens.push({ id:"myths2", html:`
-  <p class="sv-kicker">Part 4 of 7 · True or false</p>
-  <h2>True or false? (2 of 2)</h2>
-  <h3 class="sv-sub">Older adults and money</h3>${mythBlock(MYTHS.filter(m => m.topic === "elder"))}
-  <h3 class="sv-sub">Children</h3>${mythBlock(MYTHS.filter(m => m.topic === "child"))}` });
-
 screens.push({ id:"attitudes", html:`
-  <p class="sv-kicker">Part 5 of 7 · What you think</p>
+  <p class="sv-kicker">Part 7 of 9 · What you think</p>
   <h2>How much do you agree?</h2>
   <p class="sv-hint">There are no right or wrong answers here.</p>
   ${grid("a", ATTITUDES, AGREE_COLS)}` });
 
 screens.push({ id:"experience", html:`
-  <p class="sv-kicker">Part 6 of 7 · Experience and reporting</p>
+  <p class="sv-kicker">Part 8 of 9 · Experience and reporting</p>
   <h2>Your experience</h2>
   <fieldset class="sv-q"><legend>In the past 12 months, have you received a call, message or email that you believed was a scam?</legend>${radios("scamContact", ["Yes, several times","Yes, once or twice","No","Not sure"])}</fieldset>
   <fieldset class="sv-q"><legend>Have you, or someone close to you, ever lost money or personal information to a scam?</legend>${radios("scamLoss", ["Yes, I have","Yes, someone close to me","Both","No","Not sure","Prefer not to say"])}</fieldset>
@@ -377,7 +377,7 @@ screens.push({ id:"experience", html:`
   <p class="sv-hint" style="margin-top:10px">If something felt familiar, you’re not alone. Free, confidential help is listed at the end.</p></fieldset>` });
 
 screens.push({ id:"learning", html:`
-  <p class="sv-kicker">Part 7 of 7 · Learning</p>
+  <p class="sv-kicker">Part 9 of 9 · Learning</p>
   <h2>Helping people learn</h2>
   <fieldset class="sv-q"><legend>Where do you usually learn about topics like these? <span class="sv-hint">Choose all that apply.</span></legend>${checks("sources", SOURCES)}</fieldset>
   <fieldset class="sv-q"><legend>Which formats would you most likely use? <span class="sv-hint">Choose up to 3.</span></legend>${checks("formats", FORMATS, 3)}</fieldset>
@@ -475,9 +475,8 @@ function collect() {
     sector: form.sector.value, sectorOther: form.sector.value === "Other" ? form.sectorOther.value.trim().slice(0, 120) : "",
     roles: vals("roles"), training: vals("training"),
     conf: Object.fromEntries(TOPICS.map(([k]) => [k, val("conf_" + k)])),
-    confself: Object.fromEntries(TOPICS.slice(0, 3).map(([k]) => [k, val("confself_" + k)])),
-    sit: Object.fromEntries(SCENARIOS.map(s => [s.id, { judgment: val("j_" + s.id), details: vals("d_" + s.id) }])),
-    myths: Object.fromEntries(MYTHS.map(m => [m.id, val("m_" + m.id)])),
+    sit: Object.fromEntries(SCENARIOS.map(s => [s.id, { judgment: val("j_" + s.id), details: vals("d_" + s.id), action: val("x_" + s.id) }])),
+    know: Object.fromEntries(KNOW.map(k => [k.id, k.type === "multi" ? vals("k_" + k.id) : val("k_" + k.id)])),
     att: Object.fromEntries(ATTITUDES.map(([k]) => [k, val("a_" + k)])),
     scamContact: val("scamContact"), scamLoss: val("scamLoss"), experienced: vals("experienced"), suspected: val("suspected"),
     where: Object.fromEntries(TOPICS.map(([k]) => [k, val("where_" + k)])), barriers: vals("barriers"), remind: val("remind"),
@@ -486,17 +485,19 @@ function collect() {
   };
   const byTopic = {};
   ["trafficking","scams","elder","child"].forEach(t => {
-    const list = MYTHS.filter(m => m.topic === t);
-    byTopic[t] = { correct: list.filter(m => a.myths[m.id] === m.answer).length, total: list.length, unsure: list.filter(m => a.myths[m.id] === "Not sure").length };
+    const list = KNOW.filter(k => k.topic === t);
+    byTopic[t] = { correct: list.filter(k => isRight(k, a.know[k.id])).length, total: list.length };
   });
   a.score = {
     situations: SCENARIOS.filter(s => readCorrect(s, a.sit[s.id].judgment)).length,
     situationsTotal: SCENARIOS.length,
-    signs: SCENARIOS.reduce((n, s) => n + a.sit[s.id].details.filter(d => s.flags.includes(d)).length, 0),
-    signsTotal: SCENARIOS.reduce((n, s) => n + s.flags.length, 0),
+    signs: SCENARIOS.filter(s => s.mode === "details").reduce((n, s) => n + a.sit[s.id].details.filter(d => s.flags.includes(d)).length, 0),
+    signsTotal: SCENARIOS.filter(s => s.mode === "details").reduce((n, s) => n + s.flags.length, 0),
+    actions: SCENARIOS.filter(s => s.mode === "action" && a.sit[s.id].action === s.action.options[s.action.good]).length,
+    actionsTotal: SCENARIOS.filter(s => s.mode === "action").length,
     harmlessFlagged: SCENARIOS.reduce((n, s) => n + a.sit[s.id].details.filter(d => s.neutral.includes(d)).length, 0),
-    myths: MYTHS.filter(m => a.myths[m.id] === m.answer).length, mythsTotal: MYTHS.length,
-    unsure: MYTHS.filter(m => a.myths[m.id] === "Not sure").length,
+    know: KNOW.filter(k => isRight(k, a.know[k.id])).length, knowTotal: KNOW.length,
+    unsure: KNOW.filter(k => a.know[k.id] === "Not sure").length,
     byTopic
   };
   return a;
@@ -509,19 +510,31 @@ function toRow(a) {
     "Country": a.country, "Age": a.age, "Gender": a.gender, "Sector": a.sector, "Sector (other)": a.sectorOther,
     "Roles": j(a.roles), "Past training": j(a.training)
   };
-  TOPICS.forEach(([k, l]) => { row[`Confidence (someone they know): ${l}`] = a.conf[k]; });
-  TOPICS.slice(0, 3).forEach(([k, l]) => { row[`Confidence (themselves): ${l}`] = a.confself[k]; });
+  TOPICS.forEach(([k, l]) => { row[`Confidence: ${l}`] = a.conf[k]; });
   SCENARIOS.forEach(s => {
     const x = a.sit[s.id];
     row[`${s.title}: judgment`] = x.judgment;
     row[`${s.title}: read correctly`] = x.judgment ? (readCorrect(s, x.judgment) ? "Yes" : "No") : "";
-    if (s.flags.length) row[`${s.title}: warning signs noticed (of ${s.flags.length})`] = x.details.filter(d => s.flags.includes(d)).length;
-    row[`${s.title}: warning signs noticed`] = j(x.details.filter(d => s.flags.includes(d)));
-    row[`${s.title}: ordinary details flagged`] = j(x.details.filter(d => s.neutral.includes(d)));
+    if (s.mode === "details") {
+      row[`${s.title}: warning signs noticed (of ${s.flags.length})`] = x.details.filter(d => s.flags.includes(d)).length;
+      row[`${s.title}: warning signs noticed`] = j(x.details.filter(d => s.flags.includes(d)));
+      row[`${s.title}: ordinary details flagged`] = j(x.details.filter(d => s.neutral.includes(d)));
+    }
+    if (s.mode === "action") {
+      row[`${s.title}: chosen response`] = x.action;
+      row[`${s.title}: best response chosen`] = x.action ? (x.action === s.action.options[s.action.good] ? "Yes" : "No") : "";
+    }
   });
-  MYTHS.forEach(m => {
-    const v = a.myths[m.id];
-    row[`Myth (${TOPIC_LABEL[m.topic]}): ${m.text}`] = v;
+  KNOW.forEach(k => {
+    const v = a.know[k.id];
+    if (k.type === "multi") {
+      row[`Knowledge: ${k.q} (ticked)`] = v.join("; ");
+      row[`Knowledge: thinks it's NOT trafficking if they...`] = v.length ? k.correct.map(i => k.options[i]).filter(o => !v.includes(o)).join("; ") : "";
+      row[`Knowledge: ${k.id} fully correct`] = v.length ? (isRight(k, v) ? "Yes" : "No") : "";
+    } else {
+      row[`Knowledge (${TOPIC_LABEL[k.topic]}): ${k.q}`] = v;
+      row[`Knowledge: ${k.id} correct`] = v ? (isRight(k, v) ? "Yes" : v === "Not sure" ? "Not sure" : "No") : "";
+    }
   });
   ATTITUDES.forEach(([k, l]) => { row[`Agree: ${l}`] = a.att[k]; });
   Object.assign(row, {
@@ -535,12 +548,13 @@ function toRow(a) {
     "Who most needs education": j(a.audiences), "Most wants to learn about": a.want,
     "Belief that changed": a.changed, "Other comments": a.other,
     "Score: situations read correctly (of 6)": a.score.situations,
-    "Score: warning signs noticed (of 20)": a.score.signs,
+    "Score: warning signs noticed (of 8)": a.score.signs,
+    "Score: best response chosen (of 3)": a.score.actions,
     "Score: ordinary details flagged": a.score.harmlessFlagged,
-    "Score: myths correct (of 20)": a.score.myths,
-    "Score: myths answered Not sure": a.score.unsure
+    "Score: knowledge correct (of 14)": a.score.know,
+    "Score: knowledge answered Not sure": a.score.unsure
   });
-  Object.entries(a.score.byTopic).forEach(([t, v]) => { row[`Score: myths correct, ${TOPIC_LABEL[t]} (of ${v.total})`] = v.correct; });
+  Object.entries(a.score.byTopic).forEach(([t, v]) => { row[`Score: knowledge correct, ${TOPIC_LABEL[t]} (of ${v.total})`] = v.correct; });
   return row;
 }
 
@@ -566,17 +580,18 @@ function renderResults(a, ok) {
     const tag = !j ? `<span class="tag tag-miss">Skipped</span>` : hit ? `<span class="tag tag-ok">Read correctly</span>` : `<span class="tag tag-miss">Worth another look</span>`;
     const picked = a.sit[s.id].details;
     const li = (arr) => arr.map(d => `<li>${esc(d)}${picked.includes(d) ? " <em>(you noticed)</em>" : ""}</li>`).join("");
+    const act = s.mode === "action" ? `<p><strong>Best response:</strong> ${esc(s.action.options[s.action.good])}. ${esc(s.action.why)}</p>` : "";
+    const cols = s.mode === "details" ? `<div class="sv-cols"><div><h3>Warning signs</h3><ul>${li(s.flags)}</ul></div><div><h3>Ordinary details</h3><ul>${li(s.neutral)}</ul></div></div>` : (s.flags.length ? `<p><strong>Warning signs:</strong> ${s.flags.map(esc).join("; ")}.</p>` : "");
     return `<details class="sv-res"><summary>${esc(s.title)} ${tag}</summary><div class="body">
       <p class="sv-hint" style="margin-bottom:6px">${esc(s.topic)} · You answered: ${esc(j || "no answer")}</p>
-      <p>${esc(s.why)}</p>
-      <div class="sv-cols">${s.flags.length ? `<div><h3>Warning signs</h3><ul>${li(s.flags)}</ul></div>` : ""}<div><h3>${s.flags.length ? "Ordinary details" : "Why these are normal here"}</h3><ul>${li(s.neutral)}</ul></div></div></div></details>`;
+      <p>${esc(s.why)}</p>${act}${cols}</div></details>`;
   }).join("");
   const mythHtml = ["trafficking","scams","elder","child"].map(t => {
     const sc = a.score.byTopic[t];
-    return `<h3 class="sv-sub">${TOPIC_LABEL[t]} <span class="sv-hint">· ${sc.correct} of ${sc.total} correct</span></h3>` + MYTHS.filter(m => m.topic === t).map(m => {
-      const v = a.myths[m.id], hit = v === m.answer;
-      const tag = !v ? `<span class="tag tag-miss">Skipped</span>` : hit ? `<span class="tag tag-ok">Correct</span>` : `<span class="tag tag-miss">It’s ${m.answer.toLowerCase()}</span>`;
-      return `<details class="sv-res"><summary>${esc(m.text)} ${tag}</summary><div class="body"><p><strong>${m.answer}.</strong> ${esc(m.why)}</p></div></details>`;
+    return `<h3 class="sv-sub">${TOPIC_LABEL[t]} <span class="sv-hint">\u00b7 ${sc.correct} of ${sc.total} correct</span></h3>` + KNOW.filter(k => k.topic === t).map(k => {
+      const v = a.know[k.id], empty = Array.isArray(v) ? !v.length : !v, hit = isRight(k, v);
+      const tag = empty ? `<span class="tag tag-miss">Skipped</span>` : hit ? `<span class="tag tag-ok">Correct</span>` : `<span class="tag tag-miss">Worth knowing</span>`;
+      return `<details class="sv-res"><summary>${esc(k.q)} ${tag}</summary><div class="body"><p><strong>Answer: ${esc(rightText(k))}.</strong> ${esc(k.why)}</p></div></details>`;
     }).join("");
   }).join("");
   document.getElementById("results").innerHTML = `
@@ -584,9 +599,9 @@ function renderResults(a, ok) {
     <h1>Thank you for taking part</h1>
     <p class="lead">Most people find several of these harder than they expected. That’s the point: exploitation is designed not to look like exploitation.</p>
     <p class="sv-status" id="sv-status" role="status">${ok ? "Your answers were saved anonymously." : `<span class="sv-error">We couldn’t save your answers just now.</span> <button type="button" class="btn btn-secondary" id="sv-retry">Try again</button>`}</p>
-    <div class="sv-score"><div><strong>${a.score.situations} of ${a.score.situationsTotal}</strong>situations read correctly</div><div><strong>${a.score.signs} of ${a.score.signsTotal}</strong>warning signs noticed</div><div><strong>${a.score.myths} of ${a.score.mythsTotal}</strong>true-or-false answers correct</div></div>
+    <div class="sv-score"><div><strong>${a.score.situations} of ${a.score.situationsTotal}</strong>situations read correctly</div><div><strong>${a.score.actions} of ${a.score.actionsTotal}</strong>best responses chosen</div><div><strong>${a.score.know} of ${a.score.knowTotal}</strong>knowledge questions correct</div></div>
     <h2>The situations</h2><p>Open each one to see the warning signs.</p>${sitHtml}
-    <h2>True or false: the answers</h2>${mythHtml}
+    <h2>The knowledge questions: answers</h2>${mythHtml}
     <h2>Pass it on</h2><p>The more people who know the signs, the fewer people are exploited without anyone noticing.</p>
     <p><button type="button" class="btn btn-primary" id="sv-share">Share this survey</button> <a href="learn.html" style="margin-left:12px">Learn more about the signs</a></p>
     ${HELP}`;
