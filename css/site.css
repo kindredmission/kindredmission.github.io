@@ -188,3 +188,7 @@ main a.choice:visited{color:var(--text)}
 .sv-screen:not([hidden]){animation:fadeUp .45s ease both}
 .stat{transition:background .3s}.stat:hover{background:var(--bg-alt)}
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.js .reveal{opacity:1;transform:none}}
+.footer-logo{display:flex;align-items:center;gap:10px}
+.footer-mark{width:46px;height:46px;border-radius:50%;background:#fbf3e8;display:flex;align-items:center;justify-content:center;flex:none}
+.footer-mark svg{width:40px;height:auto}
+.logo-mark{width:58px}
