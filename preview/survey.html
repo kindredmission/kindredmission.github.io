@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<script>document.documentElement.className="js"</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Can you spot exploitation? A Kindred survey | Kindred</title>
+<meta name="description" content="An anonymous survey from Kindred. Read real-life situations, test common myths, see how well you recognize exploitation and learn the signs.">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<meta property="og:site_name" content="Kindred">
+<meta property="og:title" content="Can you spot exploitation? A Kindred survey | Kindred">
+<meta property="og:description" content="An anonymous survey from Kindred. Read real-life situations, test common myths, see how well you recognize exploitation and learn the signs.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1749302860502-35be67c058c2?auto=format&fit=crop&w=1200&q=70">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cpath d='M42.0 28.8 Q60.0 10.0 78.0 28.8' fill='none' stroke='%23c8553d' stroke-width='8' stroke-linecap='round'/%3E%3Ccircle cx='60.0' cy='9.4' r='6.5' fill='%23c8553d'/%3E%3Cpath d='M78.0 28.8 Q103.3 35.0 96.0 60.0' fill='none' stroke='%236b2d5c' stroke-width='8' stroke-linecap='round'/%3E%3Ccircle cx='103.8' cy='34.7' r='6.5' fill='%236b2d5c'/%3E%3Cpath d='M96.0 60.0 Q103.3 85.0 78.0 91.2' fill='none' stroke='%23d9922e' stroke-width='8' stroke-linecap='round'/%3E%3Ccircle cx='103.8' cy='85.3' r='6.5' fill='%23d9922e'/%3E%3Cpath d='M78.0 91.2 Q60.0 110.0 42.0 91.2' fill='none' stroke='%23e07a5f' stroke-width='8' stroke-linecap='round'/%3E%3Ccircle cx='60.0' cy='110.6' r='6.5' fill='%23e07a5f'/%3E%3Cpath d='M42.0 91.2 Q16.7 85.0 24.0 60.0' fill='none' stroke='%236b2d5c' stroke-width='8' stroke-linecap='round'/%3E%3Ccircle cx='16.2' cy='85.3' r='6.5' fill='%236b2d5c'/%3E%3Cpath d='M24.0 60.0 Q16.7 35.0 42.0 28.8' fill='none' stroke='%23d9922e' stroke-width='8' stroke-linecap='round'/%3E%3Ccircle cx='16.2' cy='34.7' r='6.5' fill='%23d9922e'/%3E%3Cpath d='M60 82 C52 72 56 60 60 40 C62 56 68 66 60 82 Z' fill='%23c8553d'/%3E%3Cpath d='M53 80 C45 74 46 64 49 56 C50 66 54 71 53 80 Z' fill='%23f2a541'/%3E%3Cpath d='M67 80 C75 74 74 64 71 56 C70 66 66 71 67 80 Z' fill='%23d9922e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Raleway:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<style>
+.sv{max-width:760px;margin:0 auto;padding:8px 0 56px}
+.sv-progress{display:flex;align-items:center;gap:12px;margin:4px 0 22px;font-size:.95rem;color:var(--muted)}
+.sv-bar{flex:1;height:8px;background:var(--bg-alt);border-radius:4px;overflow:hidden;border:1px solid var(--line)}
+.sv-bar span{display:block;height:100%;width:0;background:var(--brand);transition:width .25s ease}
+.sv-screen[hidden],.sv-progress[hidden],#sector-other-wrap[hidden]{display:none}
+.sv-screen h1{margin-bottom:.35em}
+.sv-screen h2{margin-top:0}
+.sv-kicker{font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.sv-story{background:var(--bg-alt);border-left:5px solid var(--brand);padding:18px 20px;margin:0 0 24px;font-size:1.08rem;line-height:1.65}
+.sv-story p:last-child{margin-bottom:0}
+.sv-q{border:0;margin:0 0 26px;padding:0;min-width:0}
+.sv-q legend,.sv-q .sv-label{font-weight:700;color:var(--ink);font-size:1.06rem;margin-bottom:10px;padding:0;display:block}
+.sv-hint{font-weight:400;color:var(--muted);font-size:.95rem}
+.sv-opts{display:grid;gap:8px}
+.sv-opt{display:flex;align-items:flex-start;gap:12px;border:1px solid var(--line);border-radius:4px;padding:11px 14px;cursor:pointer;background:#fff;min-height:48px}
+.sv-opt:hover{border-color:#9aa3ad}
+.sv-opt input{margin:3px 0 0;width:20px;height:20px;flex:none;accent-color:var(--brand)}
+.sv-opt:has(input:checked){border-color:var(--brand);background:#eef3f8;box-shadow:inset 0 0 0 1px var(--brand)}
+.sv-opt:has(input:focus-visible){outline:3px solid var(--focus);outline-offset:2px}
+.sv select,.sv input[type=text]{width:100%;font:inherit;padding:11px 12px;border:1px solid #8c939b;border-radius:4px;background:#fff;min-height:48px;color:var(--ink)}
+.sv-grid{width:100%;border-collapse:collapse;font-size:1rem}
+.sv-grid th,.sv-grid td{border-bottom:1px solid var(--line);padding:10px 6px;text-align:center}
+.sv-grid th:first-child,.sv-grid td:first-child{text-align:left;font-weight:600;color:var(--ink)}
+.sv-grid thead th{font-size:.88rem;font-weight:600;color:var(--muted);vertical-align:bottom}
+.sv-grid input{width:22px;height:22px;accent-color:var(--brand)}
+.sv-myth{border-bottom:1px solid var(--line);padding:0 0 18px;margin-bottom:18px}
+.sv-myth:last-of-type{border-bottom:0}
+.sv-row{display:flex;gap:8px;flex-wrap:wrap}
+.sv-row .sv-opt{flex:1 1 120px;justify-content:flex-start;align-items:center}
+.sv-nav{display:flex;gap:12px;justify-content:space-between;align-items:center;margin-top:28px;padding-top:18px;border-top:1px solid var(--line)}
+.btn{font:inherit;font-weight:700;border-radius:4px;padding:12px 22px;min-height:48px;cursor:pointer;border:2px solid var(--brand)}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand-2)}
+.btn-secondary{background:#fff;color:var(--brand)}
+.btn-secondary:hover{background:var(--bg-alt)}
+.btn[disabled]{opacity:.6;cursor:wait}
+.sv-note{background:var(--gold-soft);border:1px solid #e6d29a;padding:14px 16px;border-radius:4px;font-size:.98rem}
+.sv-facts{list-style:none;padding:0;margin:18px 0 22px;display:grid;gap:8px}
+.sv-facts li{padding-left:28px;position:relative;margin:0}
+.sv-facts li::before{content:"";position:absolute;left:4px;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--gold)}
+.sv-score{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0 26px}
+.sv-score div{flex:1 1 200px;border:1px solid var(--line);border-top:5px solid var(--brand);padding:14px 16px;background:#fff}
+.sv-score strong{display:block;font-family:var(--serif);font-size:2rem;color:var(--ink);line-height:1.1}
+.sv-res{border:1px solid var(--line);border-radius:4px;margin:0 0 14px;background:#fff}
+.sv-res summary{cursor:pointer;padding:14px 16px;font-weight:700;color:var(--ink);display:flex;gap:10px;align-items:baseline;list-style:none}
+.sv-res summary::-webkit-details-marker{display:none}
+.sv-res summary::after{content:"Show";margin-left:auto;font-weight:600;color:var(--blue);font-size:.92rem}
+.sv-res[open] summary::after{content:"Hide"}
+.sv-res .body{padding:0 16px 14px}
+.tag{font-size:.82rem;font-weight:700;padding:2px 8px;border-radius:3px;white-space:nowrap}
+.tag-ok{background:var(--green-soft);color:#1d5c34}
+.tag-miss{background:#fbe9e7;color:var(--red-dark)}
+.sv-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.sv-cols h3{font-size:1rem;margin:0 0 6px;font-family:var(--sans)}
+.sv-cols ul{margin:0;padding-left:1.2em;font-size:.98rem}
+.sv-help{background:var(--bg-alt);border:1px solid var(--line);padding:18px 20px;margin-top:26px}
+.sv-help h2{margin-top:0;font-size:1.3rem}
+.sv-help ul{margin-bottom:0}
+.sv-status{font-size:.92rem;color:var(--muted);margin-top:10px}
+.sv-error{color:var(--red-dark);font-weight:600}
+@media (max-width:640px){
+  .sv-cols{grid-template-columns:1fr}
+  .sv-grid{font-size:.92rem}
+  .sv-grid th,.sv-grid td{padding:8px 3px}
+  .sv-grid thead th{font-size:.74rem;line-height:1.2;word-break:normal;hyphens:auto}
+  .sv-grid td:first-child{width:38%}
+  .sv-nav .btn{flex:1}
+}
+.sv-grid td label span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.sv-grid td label{display:flex;justify-content:center;align-items:center;min-height:40px;cursor:pointer}
+.sv-sub{font-family:var(--sans);font-size:1.05rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:26px 0 14px;padding-top:14px;border-top:3px solid var(--brand)}
+.sv textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid #8c939b;border-radius:4px;min-height:90px;resize:vertical}
+.sv-other[hidden]{display:none}.sv-other{margin-top:10px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<div class="utility"><div class="container">
+  <p><strong>In immediate danger?</strong> Call your local emergency number (911 in the U.S.). Confidential help: <a href="connect.html#hotlines">hotlines and resources</a>.</p>
+  <div class="exit-wrap"><a class="exit-btn" href="https://www.google.com/search?q=weather" data-exit>Quick exit</a><span class="exit-note">or press Esc twice</span></div>
+</div></div>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html"><svg class="logo-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M42.0 28.8 Q60.0 10.0 78.0 28.8" fill="none" stroke="#c8553d" stroke-width="8" stroke-linecap="round"/><circle cx="60.0" cy="9.4" r="6.5" fill="#c8553d"/><path d="M78.0 28.8 Q103.3 35.0 96.0 60.0" fill="none" stroke="#6b2d5c" stroke-width="8" stroke-linecap="round"/><circle cx="103.8" cy="34.7" r="6.5" fill="#6b2d5c"/><path d="M96.0 60.0 Q103.3 85.0 78.0 91.2" fill="none" stroke="#d9922e" stroke-width="8" stroke-linecap="round"/><circle cx="103.8" cy="85.3" r="6.5" fill="#d9922e"/><path d="M78.0 91.2 Q60.0 110.0 42.0 91.2" fill="none" stroke="#e07a5f" stroke-width="8" stroke-linecap="round"/><circle cx="60.0" cy="110.6" r="6.5" fill="#e07a5f"/><path d="M42.0 91.2 Q16.7 85.0 24.0 60.0" fill="none" stroke="#6b2d5c" stroke-width="8" stroke-linecap="round"/><circle cx="16.2" cy="85.3" r="6.5" fill="#6b2d5c"/><path d="M24.0 60.0 Q16.7 35.0 42.0 28.8" fill="none" stroke="#d9922e" stroke-width="8" stroke-linecap="round"/><circle cx="16.2" cy="34.7" r="6.5" fill="#d9922e"/><path d="M60 82 C52 72 56 60 60 40 C62 56 68 66 60 82 Z" fill="#c8553d"/><path d="M53 80 C45 74 46 64 49 56 C50 66 54 71 53 80 Z" fill="#f2a541"/><path d="M67 80 C75 74 74 64 71 56 C70 66 66 71 67 80 Z" fill="#d9922e"/></svg><span class="logo-text"><span class="logo-name">Kindred</span><span class="logo-tag">Awakening the humanity in us</span></span></a>
+    <a class="header-cta" href="get-involved.html#briefing">Get the briefing</a>
+  </div>
+</header>
+<nav class="site-nav" aria-label="Main">
+  <div class="container">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-list">Menu</button>
+    <ul id="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="briefing.html">The briefing</a></li>
+      <li><a href="topics.html">Topics</a></li>
+      <li><a href="human-crimes.html">Human crimes</a></li>
+      <li><a href="get-involved.html">Get involved</a></li>
+      <li><a href="why-i-started-kindred.html">Our story</a></li>
+      <li class="nav-help"><a href="get-involved.html#briefing">Get the briefing</a></li>
+    </ul>
+  </div>
+</nav>
+<nav class="sub-nav" aria-label="Human crimes"><div class="container"><span class="sub-nav-label">Human crimes</span><ul><li><a href="human-crimes.html">Overview</a></li><li><a href="learn.html">Learn the signs</a></li><li><a href="survey.html" aria-current="page">Public survey</a></li><li><a href="share.html">For survivors</a></li><li><a href="connect.html">Get help</a></li></ul></div></nav>
+<main id="main">
+
+<div class="container">
+<div class="sv" id="survey">
+  <div class="sv-progress" id="progress" hidden><span id="progress-text">Step 1 of 10</span><div class="sv-bar" aria-hidden="true"><span id="progress-bar"></span></div></div>
+  <form id="sv-form" novalidate></form>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-cols">
+      <div class="footer-about"><p class="footer-logo"><span class="footer-mark"><svg class="logo-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M42.0 28.8 Q60.0 10.0 78.0 28.8" fill="none" stroke="#c8553d" stroke-width="8" stroke-linecap="round"/><circle cx="60.0" cy="9.4" r="6.5" fill="#c8553d"/><path d="M78.0 28.8 Q103.3 35.0 96.0 60.0" fill="none" stroke="#6b2d5c" stroke-width="8" stroke-linecap="round"/><circle cx="103.8" cy="34.7" r="6.5" fill="#6b2d5c"/><path d="M96.0 60.0 Q103.3 85.0 78.0 91.2" fill="none" stroke="#d9922e" stroke-width="8" stroke-linecap="round"/><circle cx="103.8" cy="85.3" r="6.5" fill="#d9922e"/><path d="M78.0 91.2 Q60.0 110.0 42.0 91.2" fill="none" stroke="#e07a5f" stroke-width="8" stroke-linecap="round"/><circle cx="60.0" cy="110.6" r="6.5" fill="#e07a5f"/><path d="M42.0 91.2 Q16.7 85.0 24.0 60.0" fill="none" stroke="#6b2d5c" stroke-width="8" stroke-linecap="round"/><circle cx="16.2" cy="85.3" r="6.5" fill="#6b2d5c"/><path d="M24.0 60.0 Q16.7 35.0 42.0 28.8" fill="none" stroke="#d9922e" stroke-width="8" stroke-linecap="round"/><circle cx="16.2" cy="34.7" r="6.5" fill="#d9922e"/><path d="M60 82 C52 72 56 60 60 40 C62 56 68 66 60 82 Z" fill="#c8553d"/><path d="M53 80 C45 74 46 64 49 56 C50 66 54 71 53 80 Z" fill="#f2a541"/><path d="M67 80 C75 74 74 64 71 56 C70 66 66 71 67 80 Z" fill="#d9922e"/></svg></span>Kindred</p><p>Kindred publishes the Compliance weather: a regular briefing on payments compliance for compliance professionals and payments businesses, with the human cost of financial crime always in view.</p></div>
+      <div><h2>The briefing</h2><ul><li><a href="briefing.html">Latest edition</a></li><li><a href="briefing.html#archive">All editions</a></li><li><a href="get-involved.html#briefing">Get the briefing</a></li></ul></div>
+      <div><h2>Topics</h2><ul><li><a href="topic-fraud-scams.html">Fraud and scams</a></li><li><a href="topic-card-networks.html">Card network rules</a></li><li><a href="topic-enforcement.html">Regulatory enforcement</a></li><li><a href="topic-consumer-protection.html">Consumer protection</a></li><li><a href="human-crimes.html">Human crimes</a></li></ul></div>
+      <div><h2>Kindred</h2><ul><li><a href="why-i-started-kindred.html">Our story</a></li><li><a href="get-involved.html">Get involved</a></li><li><a href="connect.html#contact">Contact</a></li><li><a href="share.html">For survivors</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>Kindred&rsquo;s briefings are general information for professionals, based on public sources linked in each item. They are not legal advice. Check the original source and your own legal counsel before acting.</p>
+      <p>Photos from <a href="https://unsplash.com/license" target="_blank" rel="noopener">Unsplash</a>, used under the Unsplash License. People shown are not connected to the topics described.</p>
+    </div>
+  </div>
+</footer>
+<script src="js/site.js" defer></script>
+<script src="js/enhance.js" defer></script>
+<script type="module">
+import { sendToSheet } from "./js/kindred-forms.js";
+const VERSION = "v2-2026-10";
+
+/* ======================= Content ======================= */
+const AGES = ["18 to 24","25 to 34","35 to 44","45 to 54","55 to 64","65 to 74","75 or older","Prefer not to say"];
+const GENDERS = ["Woman","Man","Non-binary","Prefer to self-describe","Prefer not to say"];
+const SECTORS = ["Banking and financial services","Compliance, legal or risk","Insurance","Healthcare","Education","Childcare or youth work","Elder care or social care","Social services or nonprofit","Law enforcement or public safety","Government or public sector","Faith community","Hospitality, travel or transportation","Retail or customer service","Technology","Media, marketing or communications","Construction, manufacturing or agriculture","Domestic work or cleaning","Student","Retired","Not currently working","Prefer not to say","Other"];
+const ROLES = ["I am a parent or guardian of someone under 18","I help care for, or manage money for, an older adult","None of these"];
+const TRAINING = ["Yes, through work","Yes, at school or college","Yes, through a faith or community group","Only through the news or social media","No, never"];
+const TOPICS = [["trafficking","Human trafficking"],["child","Child sexual exploitation"],["elder","Elder financial exploitation"],["scams","Predatory scams"]];
+const CONF_COLS = ["Not at all","A little","Fairly","Very"];
+const SCALE = (w) => ["Nothing unusual","A bit unusual, but probably fine",`Possibly ${w}`,`Very likely ${w}`,"Not sure"];
+
+const SCENARIOS = [
+  { id:"maria", mode:"details", group:"trafficking",  title:"Maria", word:"exploitation", topic:"Labor trafficking",
+    story:["Maria, 24, moved to another city for a job with a cleaning company that a family friend recommended. The company paid for her travel and found her a room in a shared house the manager owns.",
+           "Rent and her travel costs come out of her pay, so most weeks she takes home very little. The manager keeps her ID “so it doesn’t get lost” and drives the team to each job. Maria says she’s grateful for the work and will stay until she has paid back what she owes."],
+    correct:[2,3],
+    flags:["The manager keeps her ID","Her boss is also her landlord and her driver","Rent and costs are taken from her pay","She owes money she must work off"],
+    neutral:["The job came through a family friend","She lives in a shared house"],
+    why:"Nobody is holding Maria by force, and she doesn’t see herself as a victim, which is common. But an employer who controls her ID, her housing, her transport and a debt she must work off shows recognized signs of forced labor and debt bondage. Gratitude doesn’t rule out exploitation." },
+  { id:"jordan", mode:"action", group:"trafficking", action:{ q:"Jordan’s sister is worried. What would be the best first step for her?", options:["Stay out of it. It’s Jordan’s choice","Tell Jordan she’s being naive","Stay close to Jordan without judging her, and call a hotline for advice","Confront Chris directly","Not sure"], good:2, why:"Staying close and non-judgmental keeps the door open, and hotlines give advice to worried family members, not only to victims. Confronting the person or criticizing Jordan can push her further away." },  title:"Jordan", word:"exploitation", topic:"Sex trafficking through a relationship",
+    story:["Jordan, 19, has been dating Chris, 27, for four months. He’s generous, pays her phone bill and recently moved her into his apartment. He looks after “their” money, and says her old friends “don’t get them.”",
+           "Last week he asked her to go to a few dinners with a business contact of his, saying it would really help them both out. Jordan tells her sister she’s never been happier."],
+    correct:[2,3],
+    flags:["He controls the money","He discourages her friendships","He asked her to spend time with his contact to “help them out”","He pays her phone bill"],
+    neutral:["She moved in after four months","She says she’s happy"],
+    why:"Many people trafficked by a partner believe at first that it’s love. Taking control of money and the phone, cutting off friends, then asking for a “favor” with other men is a well-known pattern, sometimes called the boyfriend method. Feeling happy now doesn’t mean she is safe." },
+  { id:"ana", mode:"judgment", group:"control",  title:"Ana", word:"exploitation", topic:"A normal situation (control)", control:true,
+    story:["Ana, 22, went abroad for a year as an au pair through a registered agency. She signed a contract in her own language, keeps her own passport and is paid monthly into her own bank account.",
+           "She has her own room in the family’s home and calls her parents every Sunday. The family sometimes asks her to babysit on Saturday nights for extra pay, and she can say no."],
+    correct:[0,1], flags:[],
+    neutral:["She works abroad","She lives with her employer","She found the job through an agency","She is asked to work extra hours"],
+    why:"This one is a normal situation. Working abroad or living with an employer isn’t a warning sign by itself. Ana keeps her own documents and money, understands her contract, stays in touch with family and can refuse extra work. Knowing what normal looks like matters as much as spotting what isn’t." },
+  { id:"invest", mode:"action", group:"scams", action:{ q:"What would you do next?", options:["Deposit more while the returns are good","Ask them for a proper video call first, then decide","Stop, and check the platform with my bank or financial regulator before sending anything else","Not sure"], good:2, why:"A video call can be faked or avoided, and the early profits are part of the trap. Stop sending money and check the platform independently." },  title:"The investment friend", word:"a scam", topic:"Investment romance scam",
+    story:["You met someone on a language-exchange app. After weeks of friendly daily chats, you’ve video called once, briefly, on a bad connection.",
+           "They have never asked you for money. Instead, they showed you how they make steady profits on a cryptocurrency trading platform and helped you open your own account. Your first small deposit has grown 30%, and you withdrew $50 with no problem."],
+    correct:[2,3],
+    flags:["They recommended a specific trading platform","The returns are high and steady","Only one short video call","I was allowed to withdraw a little money"],
+    neutral:["We met online","They never asked me for money"],
+    why:"This is a common investment romance scam, sometimes called “pig butchering.” The scammer never asks for money directly. They steer you to a fake platform and let you withdraw a small amount to build trust, then encourage much larger deposits that can never be withdrawn." },
+  { id:"rose", mode:"details", group:"elder",  title:"Rose", word:"exploitation", topic:"Elder financial exploitation",
+    story:["Since her husband died, Rose, 81, relies on her grandson Daniel, who moved in to help. He now does her banking online “to make things easier” and recently became her power of attorney.",
+           "Rose’s bills are all paid, but her savings have dropped faster than the family expected, and Daniel has bought a new car. When her daughter asks, Rose says Daniel deserves something for everything he does."],
+    correct:[2,3],
+    flags:["Her savings are falling faster than expected","He bought a new car","He recently took over her banking and power of attorney","Rose defends him"],
+    neutral:["Her grandson moved in to help","Her bills are paid"],
+    why:"Family members are the most commonly reported perpetrators of elder financial exploitation. Paid bills and Rose’s loyalty don’t rule it out; older adults often protect the person they depend on. Falling savings, new control over accounts and unexplained spending are worth a gentle conversation and, if concerns remain, a report." },
+  { id:"sam", mode:"action", group:"child", action:{ q:"If you were Sam’s parent, what would you do first?", options:["Take away his phone and ban gaming","Talk calmly with Sam and ask about this friend, without blaming him","Message the friend and confront them","Wait and see if it continues","Not sure"], good:1, why:"A calm, blame-free conversation makes it more likely Sam will tell you what is really happening. Taking his phone away can make children hide things, and confronting the person can lead to evidence being deleted." },  title:"Sam", word:"exploitation", topic:"Online grooming of a child",
+    story:["Sam, 13, has become close to an older teen he met in an online game, who coaches him to play better and often gifts him in-game currency.",
+           "They’ve started chatting on a different app where messages disappear. Sam has become more private about his phone, and recently asked his parents for his own bank card “for gaming.”"],
+    correct:[2,3],
+    flags:["The friend gives him gifts","They moved to an app with disappearing messages","Sam is more private about his phone","He wants his own bank card"],
+    neutral:["They met through a game","The friend helps him play better"],
+    why:"People who exploit children online often pose as a slightly older peer, build trust with gifts such as game currency, and move chats to private or disappearing-message apps. Any one of these can be normal for a teenager; together they call for a calm, non-judgmental conversation with Sam." }
+];
+
+const KNOW = [
+  { id:"t_even", topic:"trafficking", type:"multi", q:"Someone can still be a victim of human trafficking even if they…", hint:"Choose all that apply.",
+    options:["are paid for their work","can leave the house on their own","agreed to the job at first","were never moved to another city or country","are a citizen of the country where it happens","are a man","can quit at any time, with no threats, debts or penalties"],
+    correct:[0,1,2,3,4,5],
+    why:"All of these except the last can still be trafficking. Pay, freedom of movement, consent at the start, citizenship and gender don\u2019t rule it out. What matters is whether the person is controlled through force, fraud or coercion. Someone who can truly quit without threats, debts or penalties is not being trafficked." },
+  { id:"t_sex", topic:"trafficking", type:"mc", q:"Out of every 10 people in forced labor worldwide, about how many do you think are being sexually exploited?",
+    options:["About 1 to 2","About 3 to 5","About 6 to 8","Nearly all","Not sure"], answer:0,
+    why:"About 2 in 10. Of 27.6 million people in forced labor, 6.3 million are in forced commercial sexual exploitation. Most are exploited in work like domestic service, construction, farming, factories and services (ILO, Walk Free and IOM, 2022)." },
+  { id:"t_help", topic:"trafficking", type:"tf", q:"People who are being trafficked will usually ask for help when they get the chance.", answer:"False",
+    why:"Many don\u2019t, often because of fear, debt, shame, threats to family, distrust of authorities, or because they don\u2019t see themselves as victims." },
+  { id:"s_spoof", topic:"scams", type:"tf", q:"Scammers can make a call or text appear to come from your bank\u2019s real phone number.", answer:"True",
+    why:"Caller ID and sender names can be faked. If in doubt, hang up and call the number on the back of your card." },
+  { id:"s_voice", topic:"scams", type:"tf", q:"Scammers can use AI to copy a family member\u2019s voice from a short recording, then call you pretending they\u2019re in trouble.", answer:"True",
+    why:"The U.S. Federal Trade Commission warns that voice cloning is being used in family-emergency scams. Agree on a family code word, and call your relative back on a number you know." },
+  { id:"s_age", topic:"scams", type:"mc", q:"In U.S. fraud reports, which group reports losing money to scams more often?",
+    options:["Adults in their 20s and 30s","Adults aged 70 and over","About the same","Not sure"], answer:0,
+    why:"In Federal Trade Commission data, younger adults report losing money more often. Older adults tend to lose larger amounts each time." },
+  { id:"s_recovery", topic:"scams", type:"tf", q:"Someone who has already lost money to a scam is less likely to be targeted again.", answer:"False",
+    why:"Past victims are often targeted again, including by \u201crecovery\u201d scammers who promise to get the money back for a fee." },
+  { id:"e_who", topic:"elder", type:"mc", q:"In cases investigated by Adult Protective Services, who is most often responsible for the financial exploitation of an older adult?",
+    options:["Strangers who contact them by phone or online","Family members","Paid caregivers","Financial advisors","Not sure"], answer:1,
+    why:"Family members are the most commonly reported perpetrators, followed by others the older person knows and trusts. Scams by strangers are also a major risk, which is why both matter." },
+  { id:"e_reported", topic:"elder", type:"mc", q:"In a large New York study, out of every 44 cases of elder financial exploitation, about how many were reported to the authorities?",
+    options:["About 1","About 10","About 20","More than 30","Not sure"], answer:0,
+    why:"Only about 1 in 44. Most cases stay hidden, often because the older person depends on, loves or fears the person involved." },
+  { id:"e_willing", topic:"elder", type:"tf", q:"If an older adult hands over money willingly, it can\u2019t be exploitation.", answer:"False",
+    why:"Pressure, deception, isolation or memory problems can mean agreement isn\u2019t freely given." },
+  { id:"c_who", topic:"child", type:"mc", q:"Who most often sexually abuses children?",
+    options:["Strangers","Someone the child or their family knows and trusts","Mostly other children","Not sure"], answer:1,
+    why:"Most children are harmed by someone they or their family know and trust. Teaching only \u201cstranger danger\u201d misses most of the risk." },
+  { id:"c_tell", topic:"child", type:"tf", q:"Children who are being sexually abused usually tell a parent or trusted adult soon after it starts.", answer:"False",
+    why:"Many children wait years, or never tell, because of fear, shame, confusion, or loyalty to the person harming them. Adults need to notice the signs and make telling feel safe." },
+  { id:"c_sextortion", topic:"child", type:"mc", q:"Who are the most frequent targets of financial sextortion, where criminals threaten to share a young person\u2019s images unless they pay?",
+    options:["Teenage girls","Teenage boys","Children under 10","Not sure"], answer:1,
+    why:"The FBI warns that teenage boys, mostly aged 14 to 17, are the main targets of financial sextortion." },
+  { id:"c_minor", topic:"child", type:"tf", q:"If a 16-year-old seems to agree to sex in exchange for money or gifts, it isn\u2019t trafficking.", answer:"False",
+    why:"Under international and U.S. law, any child involved in commercial sex is a victim. No force or deception has to be shown." }
+];
+const isRight = (k, v) => k.type === "multi" ? (Array.isArray(v) && k.options.every((o, i) => k.correct.includes(i) === v.includes(o))) : k.type === "mc" ? v === k.options[k.answer] : v === k.answer;
+const rightText = (k) => k.type === "multi" ? "All except the last" : k.type === "mc" ? k.options[k.answer] : k.answer;
+const TF = ["True","False","Not sure"];
+
+const AGREE_COLS = ["Strongly disagree","Disagree","Neutral","Agree","Strongly agree"];
+const ATTITUDES = [
+  ["selfknow","If I were being exploited or scammed, I would know it."],
+  ["victimsknow","People who are trafficked or scammed usually realize what is happening to them."],
+  ["blame","People who fall for scams are partly to blame."],
+  ["choice","People involved in commercial sex are usually there by choice."],
+  ["here","Human trafficking happens in my own community."],
+  ["comfort","I feel comfortable talking about these topics with family or friends."],
+  ["wouldreport","If I suspected one of these crimes, I would report it."],
+  ["teach","Schools and workplaces should teach people about these crimes."]
+];
+const KNOW_COLS = ["Yes, I know exactly","I’d have to look it up","No idea"];
+const BARRIERS = ["I’m not sure it’s really a crime","I don’t know who to contact","Fear of being wrong or overreacting","Fear for my safety, or the person’s","Not wanting to get involved","Distrust of police or authorities","Worry about the person’s immigration status","Language barriers","Nothing would stop me","Other"];
+const SOURCES = ["Social media","TV or news","Workplace training","School or college","Faith community","Community events","Friends or family","Podcasts","Websites","I rarely come across these topics"];
+const FORMATS = ["Short videos","Real stories from survivors","Social media posts","In-person workshops","Workplace training","Printed flyers or posters","Quizzes like this one","Articles or newsletters"];
+const MESSENGERS = ["Survivors","Police or law enforcement","Doctors or nurses","Teachers","Faith leaders","Banks","Nonprofit organizations","Social media creators","Friends or family"];
+const AUDIENCES = ["Children and teenagers","Parents","Older adults","Caregivers of older adults","Teachers and school staff","Healthcare workers","Bank and financial staff","Hotel, transport and hospitality staff","Employers and managers","Police","Everyone equally"];
+const WANT = ["Human trafficking","Child sexual exploitation","Elder financial exploitation","Predatory scams","All of these equally"];
+
+const ISO = "AF AX AL DZ AS AD AO AI AG AR AM AW AU AT AZ BS BH BD BB BY BE BZ BJ BM BT BO BA BW BR BN BG BF BI CV KH CM CA KY CF TD CL CN CO KM CG CD CK CR CI HR CU CW CY CZ DK DJ DM DO EC EG SV GQ ER EE SZ ET FK FO FJ FI FR GF PF GA GM GE DE GH GI GR GL GD GP GU GT GG GN GW GY HT VA HN HK HU IS IN ID IR IQ IE IM IL IT JM JP JE JO KZ KE KI KP KR XK KW KG LA LV LB LS LR LY LI LT LU MO MG MW MY MV ML MT MH MQ MR MU YT MX FM MD MC MN ME MS MA MZ MM NA NR NP NL NC NZ NI NE NG NU MK MP NO OM PK PW PS PA PG PY PE PH PL PT PR QA RE RO RU RW BL SH KN LC MF PM VC WS SM ST SA SN RS SC SL SG SX SK SI SB SO ZA SS ES LK SD SR SE CH SY TW TJ TZ TH TL TG TO TT TN TR TM TC TV UG UA AE GB US UY UZ VU VE VN VG VI WF EH YE ZM ZW".split(" ");
+let COUNTRIES;
+try { const dn = new Intl.DisplayNames(["en"], { type: "region" }); COUNTRIES = ISO.map(c => dn.of(c) || c); } catch (e) { COUNTRIES = ISO.slice(); }
+COUNTRIES = [...new Set(COUNTRIES)].sort((a, b) => a.localeCompare(b, "en"));
+
+/* ======================= Helpers ======================= */
+const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+const radios = (name, opts) => `<div class="sv-opts">${opts.map(o => `<label class="sv-opt"><input type="radio" name="${name}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join("")}</div>`;
+const checks = (name, opts, max, none) => `<div class="sv-opts" ${max ? `data-max="${max}"` : ""} ${none ? `data-none="${esc(none)}"` : ""}>${opts.map(o => `<label class="sv-opt"><input type="checkbox" name="${name}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join("")}</div>`;
+const grid = (prefix, rows, cols) => `<table class="sv-grid"><thead><tr><th scope="col"></th>${cols.map(c => `<th scope="col">${c}</th>`).join("")}</tr></thead><tbody>
+  ${rows.map(([k, l]) => `<tr><td>${esc(l)}</td>${cols.map(c => `<td><label><input type="radio" name="${prefix}_${k}" value="${esc(c)}" aria-label="${esc(l)}: ${esc(c)}"><span>${esc(c)}</span></label></td>`).join("")}</tr>`).join("")}</tbody></table>`;
+function shuffle(a) { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; }
+const knowBlock = (list) => list.map(k => {
+  const n = "k_" + k.id;
+  if (k.type === "tf") return `<fieldset class="sv-q sv-myth"><legend>${esc(k.q)}</legend><div class="sv-row">${TF.map(o => `<label class="sv-opt"><input type="radio" name="${n}" value="${o}"><span>${o}</span></label>`).join("")}</div></fieldset>`;
+  if (k.type === "mc") return `<fieldset class="sv-q sv-myth"><legend>${esc(k.q)}</legend>${radios(n, k.options)}</fieldset>`;
+  return `<fieldset class="sv-q sv-myth"><legend>${esc(k.q)} <span class="sv-hint">${esc(k.hint)}</span></legend>${checks(n, k.options)}</fieldset>`;
+}).join("");
+
+/* ======================= Screens ======================= */
+const screens = [];
+screens.push({ id:"intro", intro:true, html:`
+  <p class="sv-kicker">Kindred community survey</p>
+  <h1>Can you spot exploitation?</h1>
+  <p class="lead">Human trafficking, child sexual exploitation, elder financial exploitation and predatory scams rarely look the way we expect, and people living through them often don’t see it themselves. This survey helps Kindred understand what people know, what they believe and what they miss, so we can teach what matters most.</p>
+  <ul class="sv-facts">
+    <li>About 15 minutes, in 9 short parts: topic by topic, real-life situations and a few quick questions, then your views.</li>
+    <li>Anonymous. We don’t ask for your name, email or contact details, and answers are never shared or sold.</li>
+    <li>You’ll see your results and the correct answers at the end.</li>
+    <li>Every question is optional. You can stop at any time.</li>
+  </ul>
+  <p class="sv-note">Some questions touch on difficult topics, including the exploitation of a child, in general and non-graphic terms. If anything here feels close to home, help lines are listed at the end.</p>
+  <fieldset class="sv-q" style="margin-top:22px"><legend>Before you start</legend>
+  ${radios("consent", ["I am 18 or older and agree to take part","I am under 18"])}</fieldset>` });
+
+screens.push({ id:"about", html:`
+  <p class="sv-kicker">Part 1 of 9 · About you</p>
+  <h2>A little about you</h2>
+  <p class="sv-hint">This helps us see how understanding differs across places, ages and professions.</p>
+  <div class="sv-q"><label class="sv-label" for="country">Which country do you live in?</label>
+    <select id="country" name="country"><option value="">Choose a country</option><option>Prefer not to say</option>${COUNTRIES.map(c => `<option>${esc(c)}</option>`).join("")}</select></div>
+  <fieldset class="sv-q"><legend>What is your age?</legend>${radios("age", AGES)}</fieldset>
+  <fieldset class="sv-q"><legend>How do you describe your gender?</legend>${radios("gender", GENDERS)}
+    <div class="sv-other" data-for="gender" data-when="Prefer to self-describe" hidden><label class="sv-label" for="gender-other">Your description</label><input type="text" id="gender-other" name="genderOther" maxlength="60" autocomplete="off"></div></fieldset>
+  <div class="sv-q"><label class="sv-label" for="sector">Which sector do you work in?</label>
+    <select id="sector" name="sector"><option value="">Choose a sector</option>${SECTORS.map(s => `<option>${esc(s)}</option>`).join("")}</select>
+    <div class="sv-other" data-for="sector" data-when="Other" hidden><label class="sv-label" for="sector-other">Please tell us your sector</label><input type="text" id="sector-other" name="sectorOther" maxlength="120" autocomplete="off"></div></div>
+  <fieldset class="sv-q"><legend>Do any of these apply to you? <span class="sv-hint">Choose all that apply.</span></legend>${checks("roles", ROLES, 0, "None of these")}</fieldset>
+  <fieldset class="sv-q"><legend>Have you ever received training or information about human trafficking, scams or exploitation? <span class="sv-hint">Choose all that apply.</span></legend>${checks("training", TRAINING, 0, "No, never")}</fieldset>` });
+
+screens.push({ id:"confidence", html:`
+  <p class="sv-kicker">Part 2 of 9 · Before we begin</p>
+  <h2>How confident are you?</h2>
+  <p>How confident are you that you could recognize each of these if it were happening around you?</p>
+  ${grid("conf", TOPICS, CONF_COLS)}
+` });
+
+const GROUPS = [["trafficking","Human trafficking"],["child","Child sexual exploitation"],["control","A quick one"],["elder","Elder financial exploitation"],["scams","Predatory scams"]];
+let partNo = 2;
+GROUPS.forEach(([g, gl]) => {
+  const part = g === "control" ? `Part ${partNo} of 9 · ${gl}` : `Part ${++partNo} of 9 · ${gl}`;
+  SCENARIOS.filter(s => s.group === g).forEach(s => {
+    const details = shuffle([...s.flags, ...s.neutral]);
+    const judge = `<fieldset class="sv-q"><legend>Based only on what you’ve read, how would you describe this situation?</legend>${radios("j_" + s.id, SCALE(s.word))}</fieldset>`;
+    const det = s.mode === "details" ? `<fieldset class="sv-q"><legend>Which details, if any, concern you? <span class="sv-hint">Choose all that apply.</span></legend>${checks("d_" + s.id, [...details, "None of these concern me"], 0, "None of these concern me")}</fieldset>` : "";
+    const act = s.mode === "action" ? `<fieldset class="sv-q"><legend>${esc(s.action.q)}</legend>${radios("x_" + s.id, s.action.options)}</fieldset>` : "";
+    screens.push({ id:"s_" + s.id, html:`
+      <p class="sv-kicker">${part}</p>
+      <h2>Situation: ${esc(s.title)}</h2>
+      <div class="sv-story">${s.story.map(p => `<p>${esc(p)}</p>`).join("")}</div>
+      ${judge}${det}${act}` });
+  });
+  if (g !== "control") screens.push({ id:"m_" + g, html:`
+    <p class="sv-kicker">${part}</p>
+    <h2>What do you think?</h2>
+    <p class="sv-hint">Go with your first instinct. \u201cNot sure\u201d is a useful answer too.</p>
+    ${knowBlock(KNOW.filter(k => k.topic === g))}` });
+});
+
+screens.push({ id:"attitudes", html:`
+  <p class="sv-kicker">Part 7 of 9 · What you think</p>
+  <h2>How much do you agree?</h2>
+  <p class="sv-hint">There are no right or wrong answers here.</p>
+  ${grid("a", ATTITUDES, AGREE_COLS)}` });
+
+screens.push({ id:"experience", html:`
+  <p class="sv-kicker">Part 8 of 9 · Experience and reporting</p>
+  <h2>Your experience</h2>
+  <fieldset class="sv-q"><legend>In the past 12 months, have you received a call, message or email that you believed was a scam?</legend>${radios("scamContact", ["Yes, several times","Yes, once or twice","No","Not sure"])}</fieldset>
+  <fieldset class="sv-q"><legend>Have you, or someone close to you, ever lost money or personal information to a scam?</legend>${radios("scamLoss", ["Yes, I have","Yes, someone close to me","Both","No","Not sure","Prefer not to say"])}</fieldset>
+  <fieldset class="sv-q"><legend>Optional: have you, or someone close to you, ever experienced any of these? <span class="sv-hint">Answer only if you’re comfortable. We don’t ask for any details.</span></legend>${checks("experienced", ["Human trafficking","Child sexual exploitation","Elder financial exploitation","A predatory scam (beyond the one asked about above)","I’m not sure","None of these","Prefer not to say"])}</fieldset>
+  <fieldset class="sv-q"><legend>Have you ever suspected one of these crimes, but not reported it?</legend>${radios("suspected", ["Yes","No","Not sure","Prefer not to say"])}</fieldset>
+  <p class="sv-label" style="margin-top:8px">If you suspected one of these, would you know where to report it?</p>
+  ${grid("where", TOPICS, KNOW_COLS)}
+  <fieldset class="sv-q" style="margin-top:22px"><legend>What might stop you from reporting a concern? <span class="sv-hint">Choose all that apply.</span></legend>${checks("barriers", BARRIERS, 0, "Nothing would stop me")}</fieldset>
+  <fieldset class="sv-q"><legend>Did any situation in this survey remind you of something you, or someone you know, experienced?</legend>${radios("remind", ["Yes","No","Not sure","Prefer not to say"])}
+  <p class="sv-hint" style="margin-top:10px">If something felt familiar, you’re not alone. Free, confidential help is listed at the end.</p></fieldset>` });
+
+screens.push({ id:"learning", html:`
+  <p class="sv-kicker">Part 9 of 9 · Learning</p>
+  <h2>Helping people learn</h2>
+  <fieldset class="sv-q"><legend>Where do you usually learn about topics like these? <span class="sv-hint">Choose all that apply.</span></legend>${checks("sources", SOURCES)}</fieldset>
+  <fieldset class="sv-q"><legend>Which formats would you most likely use? <span class="sv-hint">Choose up to 3.</span></legend>${checks("formats", FORMATS, 3)}</fieldset>
+  <fieldset class="sv-q"><legend>Whose information would you trust most? <span class="sv-hint">Choose up to 3.</span></legend>${checks("messengers", MESSENGERS, 3)}</fieldset>
+  <fieldset class="sv-q"><legend>Who most needs to learn about these crimes? <span class="sv-hint">Choose up to 3.</span></legend>${checks("audiences", AUDIENCES, 3)}</fieldset>
+  <fieldset class="sv-q"><legend>Which topic would you most like to learn more about?</legend>${radios("want", WANT)}</fieldset>
+  <div class="sv-q"><label class="sv-label" for="changed">Before today, what is one thing you believed about these crimes that you’re now less sure about? <span class="sv-hint">Optional.</span></label><textarea id="changed" name="changed" rows="3" maxlength="1000"></textarea></div>
+  <div class="sv-q"><label class="sv-label" for="other">Anything else you’d like to share? <span class="sv-hint">Optional. Please don’t include names or contact details.</span></label><textarea id="other" name="other" rows="3" maxlength="1500"></textarea></div>` });
+
+const HELP = `<div class="sv-help"><h2>If you need help, or are worried about someone</h2><ul>
+  <li><strong>Immediate danger:</strong> call your local emergency number (112 across the EU and many other countries, 911 in North America, 999 in the UK).</li>
+  <li><strong>Human trafficking:</strong> find a hotline in your country through the <a href="https://www.globalmodernslavery.org/" target="_blank" rel="noopener">Global Modern Slavery Directory</a>. For example: U.S. 1-888-373-7888 (text 233733), Canada 1-833-900-1010, UK 08000 121 700.</li>
+  <li><strong>A child at risk online:</strong> report to your country’s hotline through <a href="https://www.inhope.org/" target="_blank" rel="noopener">INHOPE</a>, or find a child helpline at <a href="https://childhelplineinternational.org/" target="_blank" rel="noopener">Child Helpline International</a>. In the U.S.: report.cybertip.org or 1-800-843-5678.</li>
+  <li><strong>Scams:</strong> report cross-border scams at <a href="https://econsumer.gov/" target="_blank" rel="noopener">econsumer.gov</a>, and contact your bank, police or national consumer protection agency. In the U.S.: reportfraud.ftc.gov.</li>
+  <li><strong>An older adult:</strong> contact local adult protective or social services, the police, or the person’s bank. In the U.S.: National Elder Fraud Hotline, 1-833-372-8311.</li></ul></div>`;
+
+screens.push({ id:"under18", end:true, html:`
+  <h1>Thank you for your interest</h1>
+  <p class="lead">This survey is for adults, so we won’t ask you any questions. If you’re worried about anything happening to you or a friend, talking to a trusted adult is a good first step.</p>
+  ${HELP}` });
+screens.push({ id:"results", end:true, html:`<div id="results"></div>` });
+
+/* ======================= Render & navigation ======================= */
+const form = document.getElementById("sv-form");
+form.innerHTML = screens.map((s, i) => `<section class="sv-screen" data-i="${i}" id="screen-${s.id}" hidden>${s.html}
+  ${s.end ? "" : `<div class="sv-nav">${i > 0 ? `<button type="button" class="btn btn-secondary" data-back>Back</button>` : "<span></span>"}<button type="button" class="btn btn-primary" data-next>${s.intro ? "Start the survey" : (s.id === "learning" ? "See my results" : "Next")}</button></div>`}</section>`).join("");
+
+const QUESTION_SCREENS = screens.filter(s => !s.intro && !s.end).length;
+let current = 0, started = 0;
+const progress = document.getElementById("progress");
+function show(i) {
+  form.querySelectorAll(".sv-screen").forEach(sec => sec.hidden = Number(sec.dataset.i) !== i);
+  current = i;
+  const s = screens[i];
+  const qIndex = screens.slice(0, i + 1).filter(x => !x.intro && !x.end).length;
+  if (!s.intro && !s.end) {
+    progress.hidden = false;
+    document.getElementById("progress-text").textContent = `Step ${qIndex} of ${QUESTION_SCREENS}`;
+    document.getElementById("progress-bar").style.width = `${Math.round(qIndex / QUESTION_SCREENS * 100)}%`;
+  } else progress.hidden = true;
+  const h = form.querySelector(`[data-i="${i}"] h1, [data-i="${i}"] h2`);
+  if (h) { h.setAttribute("tabindex", "-1"); h.focus({ preventScroll: true }); }
+  window.scrollTo({ top: document.getElementById("survey").getBoundingClientRect().top + window.scrollY - 16, behavior: "smooth" });
+}
+const idx = (id) => screens.findIndex(s => s.id === id);
+
+form.addEventListener("click", (e) => {
+  const next = e.target.closest("[data-next]"), back = e.target.closest("[data-back]");
+  if (back) { show(current - 1); return; }
+  if (!next) return;
+  const s = screens[current];
+  if (s.intro) {
+    const c = form.querySelector('input[name="consent"]:checked');
+    if (!c) { flash(next, "Please choose an option to continue."); return; }
+    if (c.value === "I am under 18") { show(idx("under18")); return; }
+    started = Date.now();
+  }
+  if (s.id === "learning") { finish(next); return; }
+  show(current + 1);
+});
+function flash(btn, msg) {
+  let p = btn.parentElement.querySelector(".sv-error");
+  if (!p) { p = document.createElement("p"); p.className = "sv-error"; p.setAttribute("role", "alert"); btn.parentElement.prepend(p); }
+  p.textContent = msg;
+}
+form.addEventListener("change", (e) => {
+  const t = e.target;
+  form.querySelectorAll(".sv-other").forEach(w => {
+    const v = w.dataset.for === "sector" ? form.sector.value : val(w.dataset.for);
+    w.hidden = v !== w.dataset.when;
+  });
+  if (t.name === "consent") form.querySelectorAll(".sv-error").forEach(x => x.remove());
+  const box = t.closest(".sv-opts");
+  if (box && t.type === "checkbox") {
+    const none = box.dataset.none, all = box.querySelectorAll("input");
+    if (none && t.checked) all.forEach(i => { if (t.value === none ? i !== t : i.value === none) i.checked = false; });
+    if (box.dataset.max) {
+      const max = Number(box.dataset.max), on = box.querySelectorAll("input:checked");
+      all.forEach(i => { if (!i.checked) i.disabled = on.length >= max; });
+    }
+  }
+});
+form.addEventListener("submit", (e) => e.preventDefault());
+
+/* ======================= Collect, score, submit ======================= */
+const val = (n) => (form.querySelector(`[name="${n}"]:checked`) || {}).value || "";
+const vals = (n) => [...form.querySelectorAll(`[name="${n}"]:checked`)].map(i => i.value);
+const readCorrect = (s, j) => s.correct.includes(SCALE(s.word).indexOf(j));
+
+function collect() {
+  const a = {
+    secs: started ? Math.round((Date.now() - started) / 1000) : null,
+    country: form.country.value, age: val("age"),
+    gender: val("gender") === "Prefer to self-describe" ? `Self-described: ${form.genderOther.value.trim().slice(0, 60)}` : val("gender"),
+    sector: form.sector.value, sectorOther: form.sector.value === "Other" ? form.sectorOther.value.trim().slice(0, 120) : "",
+    roles: vals("roles"), training: vals("training"),
+    conf: Object.fromEntries(TOPICS.map(([k]) => [k, val("conf_" + k)])),
+    sit: Object.fromEntries(SCENARIOS.map(s => [s.id, { judgment: val("j_" + s.id), details: vals("d_" + s.id), action: val("x_" + s.id) }])),
+    know: Object.fromEntries(KNOW.map(k => [k.id, k.type === "multi" ? vals("k_" + k.id) : val("k_" + k.id)])),
+    att: Object.fromEntries(ATTITUDES.map(([k]) => [k, val("a_" + k)])),
+    scamContact: val("scamContact"), scamLoss: val("scamLoss"), experienced: vals("experienced"), suspected: val("suspected"),
+    where: Object.fromEntries(TOPICS.map(([k]) => [k, val("where_" + k)])), barriers: vals("barriers"), remind: val("remind"),
+    sources: vals("sources"), formats: vals("formats"), messengers: vals("messengers"), audiences: vals("audiences"), want: val("want"),
+    changed: form.changed.value.trim().slice(0, 1000), other: form.other.value.trim().slice(0, 1500)
+  };
+  const byTopic = {};
+  ["trafficking","child","elder","scams"].forEach(t => {
+    const list = KNOW.filter(k => k.topic === t);
+    byTopic[t] = { correct: list.filter(k => isRight(k, a.know[k.id])).length, total: list.length };
+  });
+  a.score = {
+    situations: SCENARIOS.filter(s => readCorrect(s, a.sit[s.id].judgment)).length,
+    situationsTotal: SCENARIOS.length,
+    signs: SCENARIOS.filter(s => s.mode === "details").reduce((n, s) => n + a.sit[s.id].details.filter(d => s.flags.includes(d)).length, 0),
+    signsTotal: SCENARIOS.filter(s => s.mode === "details").reduce((n, s) => n + s.flags.length, 0),
+    actions: SCENARIOS.filter(s => s.mode === "action" && a.sit[s.id].action === s.action.options[s.action.good]).length,
+    actionsTotal: SCENARIOS.filter(s => s.mode === "action").length,
+    harmlessFlagged: SCENARIOS.reduce((n, s) => n + a.sit[s.id].details.filter(d => s.neutral.includes(d)).length, 0),
+    know: KNOW.filter(k => isRight(k, a.know[k.id])).length, knowTotal: KNOW.length,
+    unsure: KNOW.filter(k => a.know[k.id] === "Not sure").length,
+    byTopic
+  };
+  return a;
+}
+const TOPIC_LABEL = { trafficking:"Human trafficking", child:"Child sexual exploitation", elder:"Elder financial exploitation", scams:"Predatory scams" };
+function toRow(a) {
+  const j = (x) => (x || []).join("; ");
+  const row = {
+    "Survey version": VERSION, "Minutes taken": a.secs == null ? "" : (a.secs / 60).toFixed(1),
+    "Country": a.country, "Age": a.age, "Gender": a.gender, "Sector": a.sector, "Sector (other)": a.sectorOther,
+    "Roles": j(a.roles), "Past training": j(a.training)
+  };
+  TOPICS.forEach(([k, l]) => { row[`Confidence: ${l}`] = a.conf[k]; });
+  SCENARIOS.forEach(s => {
+    const x = a.sit[s.id];
+    row[`${s.title}: judgment`] = x.judgment;
+    row[`${s.title}: read correctly`] = x.judgment ? (readCorrect(s, x.judgment) ? "Yes" : "No") : "";
+    if (s.mode === "details") {
+      row[`${s.title}: warning signs noticed (of ${s.flags.length})`] = x.details.filter(d => s.flags.includes(d)).length;
+      row[`${s.title}: warning signs noticed`] = j(x.details.filter(d => s.flags.includes(d)));
+      row[`${s.title}: ordinary details flagged`] = j(x.details.filter(d => s.neutral.includes(d)));
+    }
+    if (s.mode === "action") {
+      row[`${s.title}: chosen response`] = x.action;
+      row[`${s.title}: best response chosen`] = x.action ? (x.action === s.action.options[s.action.good] ? "Yes" : "No") : "";
+    }
+  });
+  KNOW.forEach(k => {
+    const v = a.know[k.id];
+    if (k.type === "multi") {
+      row[`Knowledge: ${k.q} (ticked)`] = v.join("; ");
+      row[`Knowledge: thinks it's NOT trafficking if they...`] = v.length ? k.correct.map(i => k.options[i]).filter(o => !v.includes(o)).join("; ") : "";
+      row[`Knowledge: ${k.id} fully correct`] = v.length ? (isRight(k, v) ? "Yes" : "No") : "";
+    } else {
+      row[`Knowledge (${TOPIC_LABEL[k.topic]}): ${k.q}`] = v;
+      row[`Knowledge: ${k.id} correct`] = v ? (isRight(k, v) ? "Yes" : v === "Not sure" ? "Not sure" : "No") : "";
+    }
+  });
+  ATTITUDES.forEach(([k, l]) => { row[`Agree: ${l}`] = a.att[k]; });
+  Object.assign(row, {
+    "Scam contact (12 months)": a.scamContact, "Lost money to a scam": a.scamLoss, "Experienced (self or close)": j(a.experienced),
+    "Suspected but didn't report": a.suspected
+  });
+  TOPICS.forEach(([k, l]) => { row[`Knows where to report: ${l}`] = a.where[k]; });
+  Object.assign(row, {
+    "Barriers to reporting": j(a.barriers), "Reminded of own experience": a.remind,
+    "Learns from": j(a.sources), "Preferred formats": j(a.formats), "Trusted messengers": j(a.messengers),
+    "Who most needs education": j(a.audiences), "Most wants to learn about": a.want,
+    "Belief that changed": a.changed, "Other comments": a.other,
+    "Score: situations read correctly (of 6)": a.score.situations,
+    "Score: warning signs noticed (of 8)": a.score.signs,
+    "Score: best response chosen (of 3)": a.score.actions,
+    "Score: ordinary details flagged": a.score.harmlessFlagged,
+    "Score: knowledge correct (of 14)": a.score.know,
+    "Score: knowledge answered Not sure": a.score.unsure
+  });
+  Object.entries(a.score.byTopic).forEach(([t, v]) => { row[`Score: knowledge correct, ${TOPIC_LABEL[t]} (of ${v.total})`] = v.correct; });
+  return row;
+}
+
+let lastAnswers = null;
+async function finish(btn) {
+  btn.disabled = true; btn.textContent = "Sending…";
+  const a = collect(); lastAnswers = a;
+  let ok = true;
+  try { await sendToSheet("Survey", toRow(a)); } catch (e) { ok = false; console.warn(e); }
+  renderResults(a, ok);
+  show(idx("results"));
+  btn.disabled = false; btn.textContent = "See my results";
+}
+async function retry() {
+  const st = document.getElementById("sv-status"); st.textContent = "Sending…";
+  try { await sendToSheet("Survey", toRow(lastAnswers)); st.textContent = "Your answers were saved. Thank you."; }
+  catch (e) { st.innerHTML = `<span class="sv-error">Still couldn’t save your answers. Please check your connection and try again.</span> <button type="button" class="btn btn-secondary" id="sv-retry">Try again</button>`; }
+}
+
+function renderResults(a, ok) {
+  const sitHtml = SCENARIOS.map(s => {
+    const j = a.sit[s.id].judgment, hit = readCorrect(s, j);
+    const tag = !j ? `<span class="tag tag-miss">Skipped</span>` : hit ? `<span class="tag tag-ok">Read correctly</span>` : `<span class="tag tag-miss">Worth another look</span>`;
+    const picked = a.sit[s.id].details;
+    const li = (arr) => arr.map(d => `<li>${esc(d)}${picked.includes(d) ? " <em>(you noticed)</em>" : ""}</li>`).join("");
+    const act = s.mode === "action" ? `<p><strong>Best response:</strong> ${esc(s.action.options[s.action.good])}. ${esc(s.action.why)}</p>` : "";
+    const cols = s.mode === "details" ? `<div class="sv-cols"><div><h3>Warning signs</h3><ul>${li(s.flags)}</ul></div><div><h3>Ordinary details</h3><ul>${li(s.neutral)}</ul></div></div>` : (s.flags.length ? `<p><strong>Warning signs:</strong> ${s.flags.map(esc).join("; ")}.</p>` : "");
+    return `<details class="sv-res"><summary>${esc(s.title)} ${tag}</summary><div class="body">
+      <p class="sv-hint" style="margin-bottom:6px">${esc(s.topic)} · You answered: ${esc(j || "no answer")}</p>
+      <p>${esc(s.why)}</p>${act}${cols}</div></details>`;
+  }).join("");
+  const mythHtml = ["trafficking","child","elder","scams"].map(t => {
+    const sc = a.score.byTopic[t];
+    return `<h3 class="sv-sub">${TOPIC_LABEL[t]} <span class="sv-hint">\u00b7 ${sc.correct} of ${sc.total} correct</span></h3>` + KNOW.filter(k => k.topic === t).map(k => {
+      const v = a.know[k.id], empty = Array.isArray(v) ? !v.length : !v, hit = isRight(k, v);
+      const tag = empty ? `<span class="tag tag-miss">Skipped</span>` : hit ? `<span class="tag tag-ok">Correct</span>` : `<span class="tag tag-miss">Worth knowing</span>`;
+      return `<details class="sv-res"><summary>${esc(k.q)} ${tag}</summary><div class="body"><p><strong>Answer: ${esc(rightText(k))}.</strong> ${esc(k.why)}</p></div></details>`;
+    }).join("");
+  }).join("");
+  document.getElementById("results").innerHTML = `
+    <p class="sv-kicker">Your results</p>
+    <h1>Thank you for taking part</h1>
+    <p class="lead">Most people find several of these harder than they expected. That’s the point: exploitation is designed not to look like exploitation.</p>
+    <p class="sv-status" id="sv-status" role="status">${ok ? "Your answers were saved anonymously." : `<span class="sv-error">We couldn’t save your answers just now.</span> <button type="button" class="btn btn-secondary" id="sv-retry">Try again</button>`}</p>
+    <div class="sv-score"><div><strong>${a.score.situations} of ${a.score.situationsTotal}</strong>situations read correctly</div><div><strong>${a.score.actions} of ${a.score.actionsTotal}</strong>best responses chosen</div><div><strong>${a.score.know} of ${a.score.knowTotal}</strong>knowledge questions correct</div></div>
+    <h2>The situations</h2><p>Open each one to see the warning signs.</p>${sitHtml}
+    <h2>The knowledge questions: answers</h2>${mythHtml}
+    <h2>Pass it on</h2><p>The more people who know the signs, the fewer people are exploited without anyone noticing.</p>
+    <p><button type="button" class="btn btn-primary" id="sv-share">Share this survey</button> <a href="learn.html" style="margin-left:12px">Learn more about the signs</a></p>
+    ${HELP}`;
+}
+document.addEventListener("click", async (e) => {
+  if (e.target.id === "sv-retry") retry();
+  if (e.target.id === "sv-share") {
+    const url = location.origin + location.pathname;
+    const data = { title: "Can you spot exploitation?", text: "An anonymous survey from Kindred. Can you spot the warning signs?", url };
+    try { if (navigator.share) { await navigator.share(data); return; } } catch (err) { return; }
+    try { await navigator.clipboard.writeText(url); e.target.textContent = "Link copied"; }
+    catch (err) { e.target.insertAdjacentHTML("afterend", ` <span class="sv-hint">Copy this link: ${esc(url)}</span>`); }
+  }
+});
+
+show(0);
+</script>
+
+</body>
+</html>
