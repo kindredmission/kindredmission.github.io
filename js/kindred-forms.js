@@ -163,17 +163,29 @@ export const FORMS = {
       { label: "I agree that Kindred may email me. I can unsubscribe at any time.", kind: "checkbox", required: true }
     ]
   },
+  briefing: {
+    sheet: "Get involved", extra: { "Type": "Briefing subscription" }, submitText: "Subscribe", thanksTitle: "You\u2019re subscribed.",
+    thanks: "Thank you. The next Payments Compliance Weather will come to your inbox. You can unsubscribe at any time.",
+    fields: [
+      { label: "Email", kind: "text", required: true, maxLength: 200, placeholder: "you@company.com" },
+      { label: "First name", kind: "text", maxLength: 80 },
+      { label: "Your role", kind: "select", choices: ["Compliance, AML or sanctions", "Fraud or risk", "Legal", "Product or operations", "Founder or executive", "Regulator or public sector", "Student or researcher", "Other"] },
+      { label: "Organization type", kind: "select", choices: ["Bank or credit union", "Payment institution or e-money firm", "Fintech or payment service provider", "Merchant", "Card scheme, processor or acquirer", "Consultancy or law firm", "Nonprofit", "Other"] },
+      { label: "Region you mostly work in", kind: "select", choices: ["United States", "United Kingdom", "European Union", "Global", "Other"] },
+      { label: "I agree that Kindred may email me the briefing. I can unsubscribe at any time.", kind: "checkbox", required: true }
+    ]
+  },
   training: {
     sheet: "Get involved", extra: { "Type": "Training request" }, submitText: "Send request", thanksTitle: "Thank you. Your request was sent.",
     thanks: "We\u2019ll get back to you to talk about what your group needs.",
     fields: [
       { label: "Organization or group", kind: "text", required: true, maxLength: 160 },
-      { label: "Type of group", kind: "select", required: true, choices: ["Workplace", "School or college", "Faith community", "Community group", "Bank or financial services", "Healthcare", "Hotel, transport or hospitality", "Other"] },
+      { label: "Type of group", kind: "select", required: true, choices: ["Bank or credit union", "Payment institution or fintech", "Merchant", "Other workplace", "School or college", "Faith or community group", "Other"] },
       { label: "Your name", kind: "text", required: true, maxLength: 120 },
       { label: "Email or phone", kind: "text", required: true, maxLength: 200 },
       { label: "City and country", kind: "text", maxLength: 120 },
       { label: "About how many people?", kind: "select", choices: ["Under 15", "15 to 50", "50 to 150", "More than 150"] },
-      { label: "Topics of interest", kind: "multi", choices: ["Human trafficking", "Child sexual exploitation", "Elder financial exploitation", "Predatory scams", "How to respond and where to report"] },
+      { label: "Topics of interest", kind: "multi", choices: ["Scam and money mule typologies", "Human trafficking indicators in payments data", "Card scheme compliance", "Consumer protection and vulnerable customers", "Human crimes awareness for the public"] },
       { label: "Preferred format", kind: "radio", choices: ["In person", "Online", "Either"] },
       { label: "Anything else we should know?", kind: "textarea", maxLength: 2000 }
     ]
