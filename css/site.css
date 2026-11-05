@@ -345,3 +345,7 @@ main a.btn-solid:visited,main a.btn-ghost:visited{color:#fff}main a.btn-line:vis
 .guide-card img{width:100%;height:auto;box-shadow:0 10px 24px rgba(18,16,22,.2)}
 .guide-card>span{display:flex;flex-direction:column;gap:10px}.guide-card strong{font-family:var(--display);font-size:1.8rem;color:var(--ink)}
 @media (max-width:640px){.guide-card{grid-template-columns:1fr}.guide-card img{max-width:180px}}
+
+.wx-grid.wx-3{grid-template-columns:repeat(3,minmax(0,1fr))}@media (max-width:1000px){.wx-grid.wx-3{grid-template-columns:1fr}}
+@media (min-width:700px){.tiles:has(> :nth-child(4):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}}
+.band-dark .wx-legend{margin-top:28px;color:inherit}
