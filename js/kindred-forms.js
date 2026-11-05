@@ -185,7 +185,7 @@ export const FORMS = {
       { label: "Email or phone", kind: "text", required: true, maxLength: 200 },
       { label: "City and country", kind: "text", maxLength: 120 },
       { label: "About how many people?", kind: "select", choices: ["Under 15", "15 to 50", "50 to 150", "More than 150"] },
-      { label: "Topics of interest", kind: "multi", choices: ["Scam and money mule typologies", "Human trafficking indicators in payments data", "Card scheme compliance", "Consumer protection and vulnerable customers", "Human crimes awareness for the public"] },
+      { label: "Topics of interest", kind: "multi", choices: ["Scam and money mule typologies", "Human trafficking indicators in payments data", "Card network rules", "Regulatory priorities and enforcement", "Human crimes awareness for the public"] },
       { label: "Preferred format", kind: "radio", choices: ["In person", "Online", "Either"] },
       { label: "Anything else we should know?", kind: "textarea", maxLength: 2000 }
     ]
