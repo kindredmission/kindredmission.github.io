@@ -109,7 +109,8 @@ export function mountForm(container, spec) {
     btn.disabled = true; btn.textContent = "Sending…";
     try {
       await sendToSheet(spec.sheet, data);
-      container.innerHTML = `<div class="f-thanks" tabindex="-1"><h3>${esc(spec.thanksTitle || "Thank you.")}</h3>${spec.thanks ? `<p>${esc(spec.thanks)}</p>` : ""}</div>`;
+      const link = spec.thanksLink ? `<p><a class="button" href="${esc(spec.thanksLink.href)}" download>${esc(spec.thanksLink.text)}</a></p>` : "";
+      container.innerHTML = `<div class="f-thanks" tabindex="-1"><h3>${esc(spec.thanksTitle || "Thank you.")}</h3>${spec.thanks ? `<p>${esc(spec.thanks)}</p>` : ""}${link}</div>`;
       container.querySelector(".f-thanks").focus();
     } catch (err) {
       formErr.textContent = "Sorry, your message could not be sent. Please check your connection and try again.";
@@ -175,6 +176,19 @@ export const FORMS = {
       { label: "Topics of interest", kind: "multi", choices: ["Human trafficking", "Child sexual exploitation", "Elder financial exploitation", "Predatory scams", "How to respond and where to report"] },
       { label: "Preferred format", kind: "radio", choices: ["In person", "Online", "Either"] },
       { label: "Anything else we should know?", kind: "textarea", maxLength: 2000 }
+    ]
+  },
+  guide: {
+    sheet: "Get involved", extra: { "Type": "Guide download: MoR or PayFac" }, submitText: "Get the guide",
+    thanksTitle: "Thank you. Your guide is ready.",
+    thanks: "Download it below. We read every suggestion for future topics.",
+    thanksLink: { href: "guides/mor-or-payfac-guide.pdf", text: "Download the full guide (PDF)" },
+    fields: [
+      { label: "Name", kind: "text", required: true, maxLength: 120 },
+      { label: "Email", kind: "text", required: true, maxLength: 200, placeholder: "you@example.com" },
+      { label: "Organization", kind: "text", required: true, maxLength: 160 },
+      { label: "Is there any area you would like more education on?", kind: "textarea", maxLength: 3000, placeholder: "For example: money transmission, card network rules, subscription billing, monitoring sub-merchants" },
+      { label: "I agree that Kindred may store these details and email me about future guides. I can ask to be removed at any time.", kind: "checkbox", required: true }
     ]
   },
   idea: {
