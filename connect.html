@@ -104,7 +104,7 @@
 <script src="js/site.js" defer></script>
 <script src="js/enhance.js" defer></script>
 <script type="module">
-import { mountForm, FORMS } from "./js/kindred-forms.js";
+import { mountForm, FORMS } from "./js/kindred-forms.js?v=20261105b";
 const d = document.getElementById("contact-details");
 let mounted = false;
 function mount() { if (mounted) return; mounted = true; mountForm(document.getElementById("connect-form"), FORMS.contact); }
