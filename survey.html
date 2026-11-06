@@ -132,7 +132,7 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-cols">
-      <div class="footer-about"><p class="footer-logo"><span class="footer-mark"><svg class="logo-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect width="600" height="600" rx="120" fill="#1B2430"/><g transform="translate(400 190)"><g stroke="#E8A58F" stroke-width="16" stroke-linecap="round"><line x1="0" y1="-120" x2="0" y2="-90"/><line x1="85" y1="-85" x2="64" y2="-64"/><line x1="120" y1="0" x2="90" y2="0"/><line x1="-85" y1="-85" x2="-64" y2="-64"/></g><circle r="68" fill="#9A3B2E"/></g><g transform="translate(300 345) rotate(-8)"><rect x="-200" y="-120" width="400" height="250" rx="30" fill="#E7D9C9"/><rect x="-160" y="-70" width="70" height="54" rx="10" fill="#9A3B2E"/><path d="M-60 -60 a26 26 0 0 1 0 34 M-42 -72 a42 42 0 0 1 0 58" fill="none" stroke="#1B2430" stroke-width="9" stroke-linecap="round"/><circle cx="125" cy="45" r="44" fill="#1B2430"/><path d="M103 46 L119 62 L148 30" fill="none" stroke="#E7D9C9" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M118 225 H250 A36 36 0 0 0 250 153 A50 50 0 0 0 158 140 A42 42 0 0 0 112 178 A24 24 0 0 0 118 225 Z" fill="#F6F4EF"/></svg></span>Kindred</p><p>Kindred publishes Payments Compliance Weather: a regular briefing on payments compliance for compliance professionals and payments businesses, with the human cost of financial crime always in view.</p></div>
+      <div class="footer-about"><p class="footer-logo"><span class="footer-mark"><svg class="logo-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect width="600" height="600" rx="120" fill="#1B2430"/><g transform="translate(400 190)"><g stroke="#E8A58F" stroke-width="16" stroke-linecap="round"><line x1="0" y1="-120" x2="0" y2="-90"/><line x1="85" y1="-85" x2="64" y2="-64"/><line x1="120" y1="0" x2="90" y2="0"/><line x1="-85" y1="-85" x2="-64" y2="-64"/></g><circle r="68" fill="#9A3B2E"/></g><g transform="translate(300 345) rotate(-8)"><rect x="-200" y="-120" width="400" height="250" rx="30" fill="#E7D9C9"/><rect x="-160" y="-70" width="70" height="54" rx="10" fill="#9A3B2E"/><path d="M-60 -60 a26 26 0 0 1 0 34 M-42 -72 a42 42 0 0 1 0 58" fill="none" stroke="#1B2430" stroke-width="9" stroke-linecap="round"/><circle cx="125" cy="45" r="44" fill="#1B2430"/><path d="M103 46 L119 62 L148 30" fill="none" stroke="#E7D9C9" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M118 225 H250 A36 36 0 0 0 250 153 A50 50 0 0 0 158 140 A42 42 0 0 0 112 178 A24 24 0 0 0 118 225 Z" fill="#F6F4EF"/></svg></span>Kindred</p><p>Kindred publishes Payments Compliance Weather: a monthly briefing on card network rules and enforcement for payments compliance professionals.</p></div>
       <div><h2>The briefing</h2><ul><li><a href="briefing.html">Latest edition</a></li><li><a href="briefing.html#archive">All editions</a></li><li><a href="guides.html">Guides</a></li><li><a href="events.html">Events</a></li><li><a href="get-involved.html#briefing">Get the briefing</a></li><li><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7524211241779630080" target="_blank" rel="noopener">Payments Compliance Weather on LinkedIn</a></li></ul></div>
       <div><h2>Topics</h2><ul><li><a href="topic-card-networks.html">Card network rules</a></li><li><a href="topic-enforcement.html">Regulatory enforcement</a></li><li><a href="human-crimes.html">Human crimes</a></li></ul></div>
       <div><h2>Kindred</h2><ul><li><a href="index.html#purpose">Purpose and mission</a></li><li><a href="why-i-started-kindred.html">Our story</a></li><li><a href="get-involved.html">Get involved</a></li><li><a href="connect.html#contact">Contact</a></li><li><a href="share.html">For survivors</a></li></ul></div>
@@ -300,7 +300,7 @@ screens.push({ id:"intro", intro:true, html:`
   ${radios("consent", ["I am 18 or older and agree to take part","I am under 18"])}</fieldset>` });
 
 screens.push({ id:"about", html:`
-  <p class="sv-kicker">Part 1 of 9 · About you</p>
+  <p class="sv-kicker">Part 1 of 9: About you</p>
   <h2>A little about you</h2>
   <p class="sv-hint">This helps us see how understanding differs across places, ages and professions.</p>
   <div class="sv-q"><label class="sv-label" for="country">Which country do you live in?</label>
@@ -315,7 +315,7 @@ screens.push({ id:"about", html:`
   <fieldset class="sv-q"><legend>Have you ever received training or information about human trafficking, scams or exploitation? <span class="sv-hint">Choose all that apply.</span></legend>${checks("training", TRAINING, 0, "No, never")}</fieldset>` });
 
 screens.push({ id:"confidence", html:`
-  <p class="sv-kicker">Part 2 of 9 · Before we begin</p>
+  <p class="sv-kicker">Part 2 of 9: Before we begin</p>
   <h2>How confident are you?</h2>
   <p>How confident are you that you could recognize each of these if it were happening around you?</p>
   ${grid("conf", TOPICS, CONF_COLS)}
@@ -324,7 +324,7 @@ screens.push({ id:"confidence", html:`
 const GROUPS = [["trafficking","Human trafficking"],["child","Child sexual exploitation"],["control","A quick one"],["elder","Elder financial exploitation"],["scams","Predatory scams"]];
 let partNo = 2;
 GROUPS.forEach(([g, gl]) => {
-  const part = g === "control" ? `Part ${partNo} of 9 · ${gl}` : `Part ${++partNo} of 9 · ${gl}`;
+  const part = g === "control" ? `Part ${partNo} of 9: ${gl}` : `Part ${++partNo} of 9: ${gl}`;
   SCENARIOS.filter(s => s.group === g).forEach(s => {
     const details = shuffle([...s.flags, ...s.neutral]);
     const judge = `<fieldset class="sv-q"><legend>Based only on what you’ve read, how would you describe this situation?</legend>${radios("j_" + s.id, SCALE(s.word))}</fieldset>`;
@@ -344,13 +344,13 @@ GROUPS.forEach(([g, gl]) => {
 });
 
 screens.push({ id:"attitudes", html:`
-  <p class="sv-kicker">Part 7 of 9 · What you think</p>
+  <p class="sv-kicker">Part 7 of 9: What you think</p>
   <h2>How much do you agree?</h2>
   <p class="sv-hint">There are no right or wrong answers here.</p>
   ${grid("a", ATTITUDES, AGREE_COLS)}` });
 
 screens.push({ id:"experience", html:`
-  <p class="sv-kicker">Part 8 of 9 · Experience and reporting</p>
+  <p class="sv-kicker">Part 8 of 9: Experience and reporting</p>
   <h2>Your experience</h2>
   <fieldset class="sv-q"><legend>In the past 12 months, have you received a call, message or email that you believed was a scam?</legend>${radios("scamContact", ["Yes, several times","Yes, once or twice","No","Not sure"])}</fieldset>
   <fieldset class="sv-q"><legend>Have you, or someone close to you, ever lost money or personal information to a scam?</legend>${radios("scamLoss", ["Yes, I have","Yes, someone close to me","Both","No","Not sure","Prefer not to say"])}</fieldset>
@@ -363,7 +363,7 @@ screens.push({ id:"experience", html:`
   <p class="sv-hint" style="margin-top:10px">If something felt familiar, you’re not alone. Free, confidential help is listed at the end.</p></fieldset>` });
 
 screens.push({ id:"learning", html:`
-  <p class="sv-kicker">Part 9 of 9 · Learning</p>
+  <p class="sv-kicker">Part 9 of 9: Learning</p>
   <h2>Helping people learn</h2>
   <fieldset class="sv-q"><legend>Where do you usually learn about topics like these? <span class="sv-hint">Choose all that apply.</span></legend>${checks("sources", SOURCES)}</fieldset>
   <fieldset class="sv-q"><legend>Which formats would you most likely use? <span class="sv-hint">Choose up to 3.</span></legend>${checks("formats", FORMATS, 3)}</fieldset>
@@ -569,7 +569,7 @@ function renderResults(a, ok) {
     const act = s.mode === "action" ? `<p><strong>Best response:</strong> ${esc(s.action.options[s.action.good])}. ${esc(s.action.why)}</p>` : "";
     const cols = s.mode === "details" ? `<div class="sv-cols"><div><h3>Warning signs</h3><ul>${li(s.flags)}</ul></div><div><h3>Ordinary details</h3><ul>${li(s.neutral)}</ul></div></div>` : (s.flags.length ? `<p><strong>Warning signs:</strong> ${s.flags.map(esc).join("; ")}.</p>` : "");
     return `<details class="sv-res"><summary>${esc(s.title)} ${tag}</summary><div class="body">
-      <p class="sv-hint" style="margin-bottom:6px">${esc(s.topic)} · You answered: ${esc(j || "no answer")}</p>
+      <p class="sv-hint" style="margin-bottom:6px">${esc(s.topic)}. You answered: ${esc(j || "no answer")}</p>
       <p>${esc(s.why)}</p>${act}${cols}</div></details>`;
   }).join("");
   const mythHtml = ["trafficking","child","elder","scams"].map(t => {
