@@ -478,3 +478,4 @@ main a.ev-name a:visited,.ev-name a:visited{color:#16204A}
 .hv-key .hv-link{font-size:.95rem}
 .is-sunny .hv-wxs{color:#16204A}
 .hv-hero h1{font-size:clamp(2.1rem,4.4vw,3.4rem);max-width:820px}
+.hv-key-p{margin:10px 0 0;color:#2c3557;font-size:1rem;line-height:1.6;max-width:900px}.hv-key-p a{color:#16204A;font-weight:700}
