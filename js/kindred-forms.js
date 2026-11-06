@@ -1,6 +1,6 @@
 // Kindred forms: renders the site's forms and sends answers to the organizer's private Google Sheet.
 // The address below is the Google Apps Script web app that writes each answer into the sheet.
-export const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbxvKsGhucI5WBaEm1sX07k4igCie1E09AlFTjHWlEBvCrNJyFTsQCQ2gGtjhCE-vpNm/exec";
+export const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbyA0B7nNO8O0oE15Z3ABI9Y0ujbuEk1SRdWkC9qnpMmLIidW4fxMW8X60ry_pbZ2tv4/exec";
 
 /** Send one response to the Google Sheet. `form` picks the tab; `data` is { "Column name": value }. */
 export async function sendToSheet(form, data) {
