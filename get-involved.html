@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Get involved | Kindred</title>
-<meta name="description" content="Follow Payments Compliance Weather on LinkedIn, request training for your team, and find Kindred events.">
+<meta name="description" content="Follow Payments Compliance Weather on LinkedIn, and request training for your team.">
 <meta name="referrer" content="no-referrer">
 <meta name="robots" content="noindex">
 <meta property="og:site_name" content="Kindred">
 <meta property="og:title" content="Get involved | Kindred">
-<meta property="og:description" content="Follow Payments Compliance Weather on LinkedIn, request training for your team, and find Kindred events.">
+<meta property="og:description" content="Follow Payments Compliance Weather on LinkedIn, and request training for your team.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1749302860502-35be67c058c2?auto=format&fit=crop&w=1200&q=70">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 600%22%3E%3Crect width=%22600%22 height=%22600%22 rx=%22120%22 fill=%22%231B2430%22/%3E%3Cg transform=%22translate(400 190)%22%3E%3Cg stroke=%22%23E8A58F%22 stroke-width=%2216%22 stroke-linecap=%22round%22%3E%3Cline x1=%220%22 y1=%22-120%22 x2=%220%22 y2=%22-90%22/%3E%3Cline x1=%2285%22 y1=%22-85%22 x2=%2264%22 y2=%22-64%22/%3E%3Cline x1=%22120%22 y1=%220%22 x2=%2290%22 y2=%220%22/%3E%3Cline x1=%22-85%22 y1=%22-85%22 x2=%22-64%22 y2=%22-64%22/%3E%3C/g%3E%3Ccircle r=%2268%22 fill=%22%239A3B2E%22/%3E%3C/g%3E%3Cg transform=%22translate(300 345) rotate(-8)%22%3E%3Crect x=%22-200%22 y=%22-120%22 width=%22400%22 height=%22250%22 rx=%2230%22 fill=%22%23E7D9C9%22/%3E%3Crect x=%22-160%22 y=%22-70%22 width=%2270%22 height=%2254%22 rx=%2210%22 fill=%22%239A3B2E%22/%3E%3Cpath d=%22M-60 -60 a26 26 0 0 1 0 34 M-42 -72 a42 42 0 0 1 0 58%22 fill=%22none%22 stroke=%22%231B2430%22 stroke-width=%229%22 stroke-linecap=%22round%22/%3E%3Ccircle cx=%22125%22 cy=%2245%22 r=%2244%22 fill=%22%231B2430%22/%3E%3Cpath d=%22M103 46 L119 62 L148 30%22 fill=%22none%22 stroke=%22%23E7D9C9%22 stroke-width=%2211%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/g%3E%3Cpath d=%22M118 225 H250 A36 36 0 0 0 250 153 A50 50 0 0 0 158 140 A42 42 0 0 0 112 178 A24 24 0 0 0 118 225 Z%22 fill=%22%23F6F4EF%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,22 +42,19 @@
 <main id="main">
 <nav class="breadcrumb container" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li aria-current="page">Get involved</li></ol></nav>
 <header class="ed-hero"><div class="container"><p class="kicker">Get involved</p><h1>Join the Kindred community</h1>
-<p class="lead">Follow Payments Compliance Weather on LinkedIn, read our guides, bring training to your team, or join an event.</p></div></header>
+<p class="lead">Follow Payments Compliance Weather on LinkedIn, read our guides, or bring training to your team.</p></div></header>
 <div class="container">
   <section class="gi-section reveal" id="training" aria-labelledby="training-h">
     <div class="gi-text"><h2 id="training-h">Bring training to your team</h2>
       <p>Practical sessions for compliance, fraud, operations and customer-facing teams, and for community groups.</p>
       <dl class="facts">
-        <div><dt>Topics</dt><dd>Scam and money mule typologies; human trafficking indicators in payments data; card network rules; enforcement lessons</dd></div>
-        <div><dt>For</dt><dd>Banks, payment institutions, fintechs, merchants, and community and faith groups</dd></div>
+        <div><dt>Topics</dt><dd>Merchant classification, underwriting and monitoring; card network rules; fraud and disputes; lessons from enforcement actions; scam, money mule and human trafficking indicators in payments data</dd></div>
+        <div><dt>For</dt><dd>Acquirers, banks, payment facilitators, merchants of record, fintechs, merchants, and community and faith groups</dd></div>
         <div><dt>Format</dt><dd>In person or online, usually 60 to 90 minutes</dd></div>
       </dl></div>
     <div class="gi-form"><h3>Request a training</h3><div class="wixform" id="training-form"></div></div>
   </section>
-  <section class="gi-section single reveal" id="events" aria-labelledby="events-h"><h2 id="events-h">Events</h2>
-    <div id="events-list" class="events" aria-live="polite"><p class="note">Loading events&hellip;</p></div></section>
   <section class="gi-more reveal"><h2>Other ways to help</h2><div class="more-grid">
-    <a href="survey.html"><strong>Take the public survey</strong><span>Help us measure what people understand about human crimes.</span></a>
     <a href="ideas.html"><strong>Share an idea</strong><span>For awareness or prevention.</span></a>
     <a href="connect.html#contact"><strong>Partner with us</strong><span>Partnerships, speaking or research.</span></a>
   </div></section>
@@ -79,24 +76,8 @@
 <script src="js/site.js" defer></script>
 <script src="js/enhance.js?v=20261105d" defer></script>
 <script type="module">
-import { mountForm, FORMS } from "./js/kindred-forms.js?v=20261105b";
+import { mountForm, FORMS } from "./js/kindred-forms.js?v=20261105c";
 mountForm(document.getElementById("training-form"), FORMS.training);
-const box = document.getElementById("events-list");
-const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-fetch("events.json", { cache: "no-store" }).then(r => r.json()).then(list => {
-  const today = new Date(); today.setHours(0, 0, 0, 0);
-  const up = (Array.isArray(list) ? list : []).filter(e => e && e.date && new Date(e.date + "T23:59:59") >= today).sort((a, b) => a.date.localeCompare(b.date));
-  if (!up.length) {
-    box.innerHTML = `<div class="empty"><p><strong>No upcoming events yet.</strong> The first Kindred events are being planned.</p><p><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7524211241779630080" target="_blank" rel="noopener">Follow Payments Compliance Weather on LinkedIn</a> to hear first, or <a href="#training">request a training</a> for your group.</p></div>`;
-    return;
-  }
-  box.innerHTML = up.map(e => {
-    const d = new Date(e.date + "T12:00:00");
-    return `<article class="event"><div class="event-date"><span>${d.toLocaleDateString("en-US", { month: "short" })}</span><strong>${d.getDate()}</strong></div>
-      <div class="event-body"><h3>${esc(e.title)}</h3><p class="event-meta">${esc(d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" }))}${e.time ? " \u00b7 " + esc(e.time) : ""}${e.place ? " \u00b7 " + esc(e.place) : ""}</p>
-      ${e.description ? `<p>${esc(e.description)}</p>` : ""}${e.link ? `<p><a href="${esc(e.link)}" target="_blank" rel="noopener">Details and registration</a></p>` : ""}</div></article>`;
-  }).join("");
-}).catch(() => { box.innerHTML = `<p class="note">Events could not be loaded. Please try again later.</p>`; });
 </script>
 </body>
 </html>

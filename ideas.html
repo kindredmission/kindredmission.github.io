@@ -84,7 +84,7 @@
 <script src="js/site.js" defer></script>
 <script src="js/enhance.js?v=20261105d" defer></script>
 <script type="module">
-import { mountForm, FORMS } from "./js/kindred-forms.js?v=20261105b";
+import { mountForm, FORMS } from "./js/kindred-forms.js?v=20261105c";
 const d = document.getElementById("idea-details");
 let mounted = false;
 d.addEventListener("toggle", () => { if (d.open && !mounted) { mounted = true; mountForm(document.getElementById("idea-form"), FORMS.idea); } });

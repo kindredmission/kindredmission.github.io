@@ -5,7 +5,7 @@
 <body><h1>Form connection test</h1><p>This sends one test row to the "Get involved" tab and shows what Google replies.</p>
 <button id="go">Run the test</button><pre id="out">Not run yet.</pre>
 <script type="module">
-import { SHEET_ENDPOINT } from "./js/kindred-forms.js?v=20261105b";
+import { SHEET_ENDPOINT } from "./js/kindred-forms.js?v=20261105c";
 const out = document.getElementById("out");
 document.getElementById("go").onclick = async () => {
   out.textContent = "Address: " + SHEET_ENDPOINT + "\n\nSending…";

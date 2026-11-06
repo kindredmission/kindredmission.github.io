@@ -72,7 +72,10 @@ export function mountForm(container, spec) {
   function applyRules() {
     (spec.rules || []).forEach((r) => {
       const src = spec.fields.findIndex((f) => f.label === r.when.field);
-      const show = value(src) !== r.when.isNot && value(src) !== "";
+      const v = value(src);
+      const show = r.when.is !== undefined
+        ? (Array.isArray(v) ? v.includes(r.when.is) : v === r.when.is)
+        : v !== r.when.isNot && v !== "";
       r.show.forEach((label) => { const i = spec.fields.findIndex((f) => f.label === label); fieldEl(i).hidden = !show; });
     });
   }
@@ -180,14 +183,20 @@ export const FORMS = {
     thanks: "We\u2019ll get back to you to talk about what your group needs.",
     fields: [
       { label: "Organization or group", kind: "text", required: true, maxLength: 160 },
-      { label: "Type of group", kind: "select", required: true, choices: ["Bank or credit union", "Payment institution or fintech", "Merchant", "Other workplace", "School or college", "Faith or community group", "Other"] },
+      { label: "Type of group", kind: "select", required: true, choices: ["Acquirer or sponsor bank", "Bank or credit union", "Payment facilitator", "Merchant of record or reseller", "Fintech or payment institution", "Merchant", "Card network or industry association", "Regulator or public sector", "School or college", "Faith or community group", "Other"] },
+      { label: "Please describe your group", kind: "text", hidden: true, required: true, maxLength: 200 },
       { label: "Your name", kind: "text", required: true, maxLength: 120 },
       { label: "Email or phone", kind: "text", required: true, maxLength: 200 },
       { label: "City and country", kind: "text", maxLength: 120 },
       { label: "About how many people?", kind: "select", choices: ["Under 15", "15 to 50", "50 to 150", "More than 150"] },
-      { label: "Topics of interest", kind: "multi", choices: ["Scam and money mule typologies", "Human trafficking indicators in payments data", "Card network rules", "Regulatory priorities and enforcement", "Human crimes awareness for the public"] },
+      { label: "Topics of interest", kind: "multi", choices: ["Merchant classification: merchant, MoR or PayFac", "Merchant underwriting and onboarding", "Ongoing merchant and sub-merchant monitoring", "Card network rules and compliance programs", "Fraud, disputes and chargeback monitoring", "Lessons from enforcement actions", "Scam and money mule typologies", "Human trafficking indicators in payments data", "Human crimes awareness for the public", "Other"] },
+      { label: "Please describe the other topics", kind: "textarea", hidden: true, required: true, maxLength: 1000 },
       { label: "Preferred format", kind: "radio", choices: ["In person", "Online", "Either"] },
       { label: "Anything else we should know?", kind: "textarea", maxLength: 2000 }
+    ],
+    rules: [
+      { when: { field: "Type of group", is: "Other" }, show: ["Please describe your group"] },
+      { when: { field: "Topics of interest", is: "Other" }, show: ["Please describe the other topics"] }
     ]
   },
   guide: {
