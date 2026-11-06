@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>Form connection test | Kindred</title>
+<style>body{font:18px/1.5 system-ui,sans-serif;max-width:680px;margin:40px auto;padding:0 16px;color:#16204A;background:#fff}button{font:inherit;padding:12px 22px;border-radius:999px;border:0;background:#16204A;color:#fff;cursor:pointer}pre{white-space:pre-wrap;background:#F4F6FB;padding:16px;border-radius:12px}</style></head>
+<body><h1>Form connection test</h1><p>This sends one test row to the "Get involved" tab and shows what Google replies.</p>
+<button id="go">Run the test</button><pre id="out">Not run yet.</pre>
+<script type="module">
+import { SHEET_ENDPOINT } from "./js/kindred-forms.js?v=20261105b";
+const out = document.getElementById("out");
+document.getElementById("go").onclick = async () => {
+  out.textContent = "Address: " + SHEET_ENDPOINT + "\n\nSending…";
+  try {
+    const res = await fetch(SHEET_ENDPOINT, { method: "POST", body: JSON.stringify({ form: "Get involved", data: { Type: "Connection test", Name: "Form test page", Time: new Date().toString() }, website: "" }) });
+    const text = await res.text();
+    out.textContent = "Address: " + SHEET_ENDPOINT + "\nStatus: " + res.status + "\nReply: " + text.slice(0, 600) +
+      (/"ok":true/.test(text) ? "\n\nRESULT: Connected. Check the Get involved tab for a 'Connection test' row." : "\n\nRESULT: Google replied, but not with a save confirmation.");
+  } catch (e) {
+    out.textContent = "Address: " + SHEET_ENDPOINT + "\nError: " + e + "\n\nRESULT: Google blocked the request. This almost always means the web app's 'Who has access' is not set to 'Anyone', or the deployment was not updated.";
+  }
+};
+</script></body></html>
