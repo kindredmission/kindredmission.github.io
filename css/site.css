@@ -544,3 +544,8 @@ body{font-family:var(--sans)}
 .hv h1,.hv h2,.hv-close h2,.ab-hero h1{font-family:var(--display);font-weight:600;letter-spacing:-.01em}
 .hv-ct,.hv-item-t,.ev-name,.ab-t,.hv-wxt{font-family:var(--sans)}
 .kicker,.item-meta,.label,.btn-solid,.btn-ghost,.btn-line,.site-nav a,.header-cta{letter-spacing:.06em}
+/* tagline: two-tone, upright */
+.logo-tag{font-family:var(--sans)!important;font-style:normal!important;font-size:.92rem;font-weight:500;letter-spacing:0;text-transform:none;line-height:1.35;color:#3a4566;margin-top:2px}
+.logo-tag .tag-a{color:#16204A}
+.logo-tag .tag-b{color:#C8553D;font-weight:600;background:linear-gradient(transparent 62%,rgba(242,165,65,.28) 62%);padding:0 2px}
+@media (max-width:640px){.logo-tag{font-size:.8rem}}
