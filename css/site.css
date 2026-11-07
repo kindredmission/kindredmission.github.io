@@ -581,3 +581,11 @@ body{font-family:var(--sans)}
 main a.art-card:visited{color:#16204A}
 @media (max-width:900px){.art-chain{grid-template-columns:1fr 1fr}.art-chain li::after{display:none}.art-roles{grid-template-columns:1fr}.art-stat{flex-direction:column;align-items:flex-start}}
 @media (max-width:560px){.art-chain{grid-template-columns:1fr}}
+
+.art-facts{display:grid;gap:10px;padding-left:20px;line-height:1.55}
+.art-table{overflow-x:auto;margin:18px 0}
+.art-table table{width:100%;border-collapse:collapse;font-size:1rem;min-width:560px}
+.art-table th{background:#16204A;color:#fff;text-align:left;padding:12px 14px;font:600 .9rem var(--sans)}
+.art-table td{padding:12px 14px;border-bottom:1px solid #D6DDEB;vertical-align:top;line-height:1.45}
+.art-table tbody tr:nth-child(odd) td{background:#F4F6FB}
+.art-table td:nth-child(2){font-weight:600;color:#16204A}
